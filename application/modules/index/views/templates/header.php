@@ -9,6 +9,8 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
 <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+<?php Assets::css_group('header', array('shared/reset.css', 'frontend/960.css', 'frontend/frontend-master.css', 'frontend/user/frontend-user.css') ); ?>
+<?php Assets::js_group('header', array('shared/modernizr.min.js') ); ?>
 </head>
 <body>
 <?php if(ENVIRONMENT == 'stage' || ENVIRONMENT == 'development'): ?>
