@@ -329,34 +329,21 @@ class Map_points extends CI_Model {
 
     }#end deactivateMapPoint function
 
-    public function getCountByCategory(){
-        $query = "
-            SELECT
-            count(p.id) As count,
-            c.category_name As category_name
-            FROM
-            map_points p
-            left outer join
-                map_categories c ON
-                    p.type = c.id
-            GROUP BY
-            p.type
-            ORDER BY
-            count
-            DESC";
-        $q = $this->db->query($query);
-        $i = 0;
-        if($q->num_rows > 0){
-	        foreach ($q->result() as $r){
-	            $result[] = $r;
-	        }
-	        while($i < 5){
-	            $re[] = $result[$i];
-	            $i++;
-	        }
-	        return $re;
-        }else{
-        	return false;
+    public function getCountByCategory($opt = array() ){
+        $this->db
+             ->from('map_points p')
+             ->select("count(p.id) As count, c.category_name As category_name", TRUE)
+             ->group_by('p.type')
+             ->join('map_categories c', 'p.type = c.id')
+             ->order_by('count', 'DESC');
+
+        if( $opt['limit'] ){
+            $this->db->limit( $opt['limit'] );
+        }
+
+        $q = $this->db->get();
+        if( $q->num_rows() > 0 ){
+            return $q->result();
         }
     }
     /**

@@ -1,6 +1,11 @@
 body{
+  margin-top:50px;
+}
+
+.login-body{
   background: url('/images/paper_01.png') left top repeat;
 }
+
 .environment {
     padding: 10px;
     margin-bottom:30px;
@@ -10,6 +15,9 @@ body{
     color: white;
     background-color: #F74242;
     border-bottom: 3px solid #B53232;
+}
+.environment-backend{
+  margin-top:40px;
 }
 .h1-title{
   margin-bottom:10px;
@@ -25,4 +33,21 @@ body{
   }
   .login-input{
     width:311px !important;
+  }
+
+/*  =Admin Area
+  ------------------------------------------------------ */
+  #graph-hero-container{
+    padding:30px;
+  }
+  #graph-hero-container h3{
+    padding-bottom:15px;
+  }
+  .graph-centering{
+    width:614px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .graph{
+    display:none;
   }

@@ -1,4 +1,3 @@
-
 <!doctype html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
@@ -7,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+
   <!-- DNS prefetch -->
   <link rel=dns-prefetch href="//fonts.googleapis.com">
 
@@ -15,50 +14,98 @@
        More info: h5bp.com/b/378 -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title><?php echo $mapConfig->site_title; ?></title>
+  <title><?php echo $mapConfig->site_title; ?> | <?= $template['title']; ?></title>
   <meta name="description" content="">
   <meta name="author" content="">
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
-
   <!-- Fonts -->
   <link href="//fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
   <!-- end Fonts-->
 
-  <?php echo $this->sprinkle->output('backend-css'); ?>
-  <?php echo $this->sprinkle->output('modernizr'); ?>
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
   <!-- All JavaScript at the bottom, except for Modernizr / Respond.
        Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
        For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
-  
-  <!-- JavaScript at the bottom for fast page loading -->
-  
+  <?php Assets::js_group('header', array('shared/modernizr.min.js') ); ?>
+<!-- CSS: implied media=all -->
+  <?php Assets::css( array('backend/bootstrap.min.css', 'backend/bootstrap-responsive.min.css', 'backend/app.css') ); ?>
 </head>
-<body id="top">
-<?php if(ENVIRONMENT == 'stage' || ENVIRONMENT == 'development'): ?>
-<div class="environment"><?= ENV_NOTICE; ?></div>
-<?php endif; ?>
-<div id="container">
-    <div id="header-surround"><header id="header">
-      
-      <!-- Place your logo here -->
-    <a href="http://www.mapitusa.com" target="_blank"><img src="<?php echo base_url(USER_TEMPLATE_IMAGES); ?>/logo.png" alt="Grape" class="logo"></a>
-    
-    <!-- Divider between info-button and the toolbar-icons -->
-    <div class="divider-header divider-vertical"></div>
- 
-    <div id="mapit-company-name">
-      <p><?= $mapConfig->site_name; ?></p>
+
+<body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#"><img src="<?= base_url('images/logo.png'); ?>" /></a>
+        <div class="btn-group pull-right">
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="icon-user"></i> <?= $user['username']; ?>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="<?= base_url('auth/change_password'); ?>">Change Password</a></li>
+            <li class="divider"></li>
+            <li><a href="<?= base_url('/auth/logout'); ?>">Sign Out</a></li>
+          </ul>
+        </div>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="active"><a href="<?= base_url('/admin/index'); ?>">Home</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Users<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="<?php echo site_url('/admin/user/index'); ?>">Manage Users</a></li>
+                <li><a href="<?php echo site_url('/admin/user/adduser'); ?>">Add New User</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Points<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="<?php echo site_url('/admin/map/addpoint'); ?>">Add New Map Points</a></li>
+                <li><a href="<?php echo site_url('/admin/map/index'); ?>">Manage Map Points</a></li>
+              </ul>
+            </li>
+            <?php if( $mapConfig->events == 1 ): ?>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="<?php echo site_url('/admin/events/add'); ?>">Add New Event</a></li>
+                <li><a href="<?php echo site_url('/admin/events/index'); ?>">Manage Events</a></li>
+              </ul>
+            </li>
+            <?php endif; ?>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <a href="<?php echo site_url('/admin/categories/add'); ?>">Add Categories</a></li>
+                <li><a href="<?php echo site_url('/admin/categories/index'); ?>">Manage Categories</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Communication<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="<?php echo site_url('/admin/email'); ?>">Send Email By Category</a></li>
+                <li><a href="<?php echo site_url('/admin/email'); ?>">Send Email By Business Name</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advertisements<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="<?php echo site_url('/admin/advertisements/index'); ?>">Manage Advertisements</a></li>
+                <li><a href="<?php echo site_url('/admin/advertisements/add'); ?>">Add Advertisement</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
     </div>
-    <!-- Begin of #user-info -->
-    <div id="user-info">
-      <p>
-        <span class="messages">Welcome <?php echo ($user['last_login'] == '') ? '' : 'Back'; ?> <a href="javascript:void(0);"><?php echo $user['firstname']; ?></a>!</span>
-        <a href="<?php echo base_url('user/logout'); ?>" class="button red">Logout</a>
-      </p>
-    </div> <!--! end of #user-info -->
-    
-    </header></div> <!--! end of #header -->
+  </div>
