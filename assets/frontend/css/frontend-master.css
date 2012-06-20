@@ -1,0 +1,819 @@
+/**
+ * Main Stylesheet for the front end of MapIt.
+ * 
+ * This is the structural styling for the front end
+ * of the MapIt system. Any user-based styling should
+ * occur in frontend-user.css file. That is where all
+ * of the font, and color based styles are applied.
+
+ * @author Mike DeVita
+ * @copyright 2012 MapIt USA
+ * @version 2.0
+ */
+
+/*  =Membership Info Page
+    ------------------------------------------------------ */
+.membership-info-bg{
+    display:none;
+    position:absolute;
+    background: url('/images/transparent_loading_background.png') top left repeat;
+    z-index:1004;
+    top:0;
+    left:0;
+    min-height:100%;
+    min-width:100%;
+}
+.membership-info-container{
+    position:absolute;
+    padding:10px;
+    top: 10px;
+    left: 10px;
+    background-color:white;
+    border-radius:6px;
+    width:920px;
+    height:620px;
+}
+.membership-info-container span{
+    position: absolute;
+    float: right;
+    font-size: 14px;
+    right: 0;
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+    top: -20px;
+}
+.membership-info-container span a {
+    padding: 6px 20px;
+}
+.membership-info-content{
+    float:left;
+}
+#membershipinfo-template{
+    margin:0 auto;
+    text-align:center;
+    background:url('/images/client_images/membership-info-bg.png') left top no-repeat #FFFFFF;
+    width:920px;
+    height:630px;
+}
+#youtube-container {
+    float: right;
+    margin-right: 4px;
+    margin-top: 420px;
+}
+/*  =Generic Body Styling
+
+    this is the generic styling for the overall layout of
+    the system. This shouldnt have any specific container
+    areas..
+    ------------------------------------------------------*/
+.environment {
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #F74242;
+    border-bottom: 3px solid #B53232;
+}
+.container_12 {
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    left: 5px;
+}
+#mapit-map-logo {
+    float: left;
+    position: absolute;
+    z-index: 999;
+    top: 5px;
+    right: 260px;
+}
+#mapit-total-container {
+    width: 940px;
+    height:650px;
+    background: white;
+    position: absolute;
+    overflow: hidden;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+/*  =Toolbar
+
+    This is the styling for the user toolbar that appears
+    to allow users to login, or register.
+    ------------------------------------------------------*/
+#toolbar {
+    height: 15px;
+    padding: 10px 10px 9px 10px;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+    text-align: right;
+}
+.toolbar-align-left {
+    float: left;
+}
+#toolbar ul {
+    margin-right:16px;
+}
+#toolbar ul li:first-child {
+    padding-right: 6px;
+    margin-right: 3px;
+}
+#toolbar ul li {
+    display: inline;
+    list-style: none;
+}
+
+
+
+/*  =Sidebar Right
+
+    this is the styling for the right sidebar of the MapIt
+    system.
+    ------------------------------------------------------*/
+/** right hand sidebar container */
+#map_sidebar {
+    height: 580px;
+    padding: 0 0 5px 0;
+}
+#map_sidebar h2 {
+    text-align: center;
+    padding: 6px;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+#map_sidebar section .sidebar-container {
+    margin-bottom: 5px;
+}
+
+/** sidebar loading styling, this is the styling for the loading box when pints are being loaded */
+#sidebar-loading {
+    float: left;
+    display: none;
+    z-index: 999;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+}
+#sidebar-loading-box {
+    margin: 0 auto;
+    width: 55%;
+    height: 46px;
+    background-image: url("/images/transparent_loading_background.png");
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 50px;
+
+    text-align: center;
+}
+#sidebar-loading-box h3 {
+    color: #ffffff;
+    margin-top: 15px;
+    min-width:122px;
+}
+#map_items {
+    -ms-overflow-y: scroll;
+    overflow-y: scroll;
+    overflow-x:hidden !important;
+    height: 180px;
+}
+#advertisement {
+    text-align: center;
+    margin: 0 auto;
+}
+#advertisements-title{
+    text-align:center;
+}
+.advertisement-content {
+    overflow: hidden !important;
+    text-align: center;
+    margin: 0 auto;
+    height: 155px;
+}
+.advertisement-content img {
+    text-align: center !important;
+    margin: 0 auto !important;
+    padding-left: 10px;
+}
+
+/** sidebar map legend styling */
+
+/**
+ * IE7 Specific Styling
+ */
+.ie7 #map-legend-title{
+    display:inline;
+}
+/**
+ * IE8/IE9 Specific Styling
+ */
+.ie8 #map-legend-title, .ie9 #map-legend-title{
+    display:block;
+}
+#map-legend-button{
+    cursor:pointer;
+    float: right;
+    text-indent: -9999px;
+    top: 4px;
+    position: relative;
+    right: 15px;
+}
+#map-legend-container{
+    margin-top:4px;
+}
+#map-legend-content {
+    height: 0;
+    overflow: hidden;
+}
+#map-legend-content img {
+    float: left;
+    padding-bottom: 2px;
+    margin-right: 4px;
+}
+.legend-item {
+    padding: 3px;
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+.legend-description {
+    margin-top: 3px;
+}
+.read-more-popup {
+    margin-top: -12px;
+    font-size: 9px;
+    float: right;
+    margin-right: 6px;
+}
+/**
+ * IE Specific Styling
+ */
+.ie7 .legend-item{
+    padding-top:0 !important;
+}
+.ie8 .legend-item{
+    padding-top:0 !important;
+}
+
+/* individual sidebar container styling */
+.item {
+    border-left: 1px solid #CFCFCF;
+    border-bottom: 1px solid #EFEFEF;
+    background: white;
+    background: -moz-linear-gradient(top, white 0%, #E5E5E5 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,white), color-stop(100%,#E5E5E5));
+    background: -webkit-linear-gradient(top, white 0%,#E5E5E5 100%);
+    background: -o-linear-gradient(top, white 0%,#E5E5E5 100%);
+    background: -ms-linear-gradient(top, white 0%,#E5E5E5 100%);
+    background: linear-gradient(top, white 0%,#E5E5E5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 );
+    padding-bottom: 4px;
+    margin-bottom: 3px;
+    width: 200px;
+    border-top: 1px solid #C3C3C3;
+}
+.sidebar-item-container {
+word-break: break-word;
+padding: 5px;
+width: 194px;
+margin-bottom: 3px;
+}
+.sidebar-item-container {
+    padding: 5px;
+    min-width:208px;
+    margin-bottom: 3px;
+}
+.sidebar-map-icon {
+    margin-right: 6px;
+    display:inline;
+}
+.sidebar-company-container {
+    float: right;
+    width: 78%;
+}
+/**
+ * IE9 Specific Styling
+ */
+.ie7 .sidebar-item-container, .ie9 .sidebar-item-container {
+    min-width:190px !important;
+}
+.ie7 .sidebar-company-container, .ie9 .sidebar-company-container{
+    width:79% !important;
+}
+.sidebar-company-phone {
+    list-style: none;
+}
+
+/* =Sidebar Left
+
+this is the styling for the left sidebar section of the
+MapIt system.
+------------------------------------------------------*/
+.ui-datepicker .lightRed a { color:#000; background: #fdedb7;  border:1px solid #fbd965;}
+.ui-datepicker .medRed a { color:#000; background: #fbd965; border:1px solid #F9CC32; }
+.ui-datepicker .darkRed a { color:#FFFFFF; background: #FFC400; border:1px solid #F9CC32; }
+#eventdate {
+    margin-left: 20px;
+    padding-top: 10px;
+}
+#event-date-slider {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.event-children {
+    margin-left: 20px;
+    list-style: none;
+    display:none;
+}
+#event-submit {
+    color: #FFFFFF;
+    font-size:12px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+}
+.directory-titles_sprite{
+    float:left;
+    background: url('/images/directory-titles_sprite.png') left top no-repeat;
+    min-width:32px;
+    text-indent:-9999px;
+    width:32px;
+    height:32px;
+}
+.title-container h1{
+    font-size:13px;
+    font-family: 'PT Sans';
+    padding: 4px 0 0 36px;
+}
+.title-container p{
+    color:#858585;
+    padding-bottom:4px;
+}
+#directory_title_step2, #deals_title-step2 {
+    background-position-y: -39px;
+}
+.or-seperator{
+    background: url('/images/or-seperator.png')left top no-repeat;
+    height:10px;
+    width:251px;
+    margin-bottom:5px;
+    margin-top:5px;
+}
+.events-titles_sprite{
+    float:left;
+    background: url('/images/events-titles_sprite.png') left top no-repeat;
+    text-indent: -9999px;
+    height: 30px;
+    min-width:32px;
+    text-indent:-9999px;
+    width:32px;
+    height:30px;
+}
+
+#events_title-step2{
+    background-position-y:-39px;
+}
+#events_title-step3{
+    background-position-y: -77px;
+}
+#events-categories {
+    height: 235px;
+}
+/**
+* Sidebar container styling
+*/
+#mapit-box-shadow {
+    position: absolute;
+    width: 940px;
+    height: 650px;
+}
+#map_directory_sidebar{
+    z-index: 1001;
+    position: absolute; 
+    height:615px;
+    display: block;
+    left: 0;
+    top: 35px;
+}
+
+#map_sidebar_controls_container{
+/*    position:relative; */
+    text-align: right;
+    left: 86px;
+    height:615px;
+    display: block;         
+    top: 0;
+    left: 0;
+    overflow: visible; 
+    border-right: 0 none;
+    position: absolute;
+    background-color: transparent; /* transparent */
+}
+.left_sidebar_control{
+    width:250px; 
+    height:100%;
+    overflow:hidden;
+    float:left;
+    background-color: #EFEFEF;
+    border-right: 2px solid #C3C3C3;
+    padding: 5px;
+    display: none; /* important: initial status of both containers */
+}
+.left_sidebar_button_container {
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    padding: 0;
+    position: relative;
+    float: left;
+    display: block;
+    margin-top:10px;
+    cursor:pointer;
+}
+.containerWrapper {
+    width: 260px;
+    height: 605px;
+    position: relative;
+    float: left;
+    margin-left: -260px; 
+    text-align:left;
+}
+.buttontWrapper {
+    width:0;
+    margin-top: 140px;
+    float: left;
+    height: 100%; 
+    position: relative;
+}
+.visible {
+    display: block !important;
+}
+#event_button, 
+#directory_button{
+    border-top: 0 none;
+    cursor: pointer;
+    left: 0;
+    letter-spacing: 1px;
+    margin-left: 0; 
+    position: absolute;
+    text-decoration: none;
+    z-index: 999;
+}
+#info-button-container{
+    margin-top:180px;
+}
+/**
+ * Browse Directory Specific Styling
+ */
+/** left sidebar, search by company name */
+#search-directory-form {
+    text-align: center;
+    padding-top: 5px;
+}
+#search-sidebar input[type="text"] {
+    padding: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    width: 95%;
+    height: 20px;
+    margin-bottom: 5px;
+}
+.ui-autocomplete {
+    width: 239px !important;
+    border-top: 0;
+    -ms-overflow-y: scroll;
+    overflow-y: scroll;
+    height: 200px;
+}
+.ui-menu-item {
+    white-space: nowrap;
+    list-style: none;
+    padding: 4px;
+}
+
+/** left sidebar, browse by category */
+#browse-by-category, #deals-browse-by-category {
+    position: relative;
+}
+.sidebar-search-buttons{
+    text-align: center;
+    margin-top: 5px;
+    padding-bottom:5px;
+}
+.btn-yellow, .btn-green{
+    padding: 4px;
+    width: 100%;
+    height:32px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+#browse-by-category ul, #deals-browse-by-category ul {
+    list-style: none;
+    font-size: 8px;
+    height: 386px;
+    -ms-overflow-y: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-top:1px solid #e6e6;
+}
+#deals-browse-by-category ul {
+    height: 378px;
+}
+.button{
+    cursor:pointer;
+}
+/**
+ * IE Specific Styles
+ */
+.ie8 .left_sidebar_button_container{
+    margin-left:0;
+}
+.ie7 .left_sidebar_button_container{
+    z-index:1000 !important;
+    margin-left:0;
+}
+.ie7 #map_sidebar_controls_container{
+    top:10px !important;
+}
+.ie7 .category{
+    width:20px;
+}
+
+.btn-green{
+    background-color: #0f4300;
+    background-image: -webkit-linear-gradient(bottom, #0f4300 19%, #2a6427 65%);
+    background-image: -moz-linear-gradient(bottom, #0f4300 19%, #2a6427 65%);
+    background-image: -o-linear-gradient(bottom, #0f4300 19%, #2a6427 65%);
+    background-image: -ms-linear-gradient(bottom, #0f4300 19%, #2a6427 65%);
+    background-image: linear-gradient(bottom, #0f4300 19%, #2a6427 65%);
+    -image background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.19, #0f4300), color-stop(0.65, #2a6427) );
+    border: 1px solid #79853d;  
+}
+.btn-yellow{
+    background-color: #F9CC32;
+    background-image: -webkit-linear-gradient(bottom, #FFC400 19%, #FFDD57 65%);
+    background-image: -moz-linear-gradient(bottom, #FFC400 19%, #FFDD57 65%);
+    background-image: -o-linear-gradient(bottom, #FFC400 19%, #FFDD57 65%);
+    background-image: -ms-linear-gradient(bottom, #FFC400 19%, #FFDD57 65%);
+    background-image: linear-gradient(bottom, #FFC400 19%, #FFDD57 65%);
+    -image background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.19, #FFC400), color-stop(0.65, #FFDD57) );
+    border: 1px solid #FFC400;
+}
+
+/*  =Map Styling
+
+    this is the styling for the actual map of the MapIt
+    system. The popup styling is below this section.
+    ------------------------------------------------------*/
+#map_container {
+    position: relative;
+}
+#map_canvas{
+    border-right:1px solid #CCCCCCw;
+}
+#loading-box {
+    margin: 0 auto;
+    width: 175px;
+    height: 50px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 208px;
+    text-align: center;
+    background-color:#FFFFFF;
+}
+#loading {
+    float: left;
+    display: none;
+    z-index: 999;
+    background-image: url("/images/transparent_loading_background.png");
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 719px;
+    height: 614px;
+}
+
+/*  =Popup Styling
+
+    this is the styling for the popups of the map. There
+    are template styles defined for styles that apply to
+    all of the various levels. Then there are level based
+    styles for each class.
+    ------------------------------------------------------*/
+.tabClass, .activeTabClass, .popupClass{
+    font-family: 'PT Sans', Arial, Helveetica, sans-serif;
+}
+.popupClass{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #B51423;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2I1MTQyMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1YjA1MDkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top, #B51423 0%, # v 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#B51423), color-stop(100%,#5B0509));
+    background: -webkit-linear-gradient(top, #B51423 0%,#5B0509 100%);
+    background: -o-linear-gradient(top, #B51423 0%,#5B0509 100%);
+    background: -ms-linear-gradient(top, #B51423 0%,#5B0509 100%);
+    background: linear-gradient(top, #B51423 0%,#5B0509 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b51423', endColorstr='#5b0509',GradientType=0 );
+    border-radius:6px;
+}
+.tabClass {
+    font-weight:bold;
+    font-size:12px;
+    z-index: 99 !important;
+    height: 100% !important;
+    background-image: linear-gradient(top, #B52F2F 29%, #AB2424 68%);
+    background-image: -o-linear-gradient(top, #B52F2F 29%, #AB2424 68%);
+    background-image: -moz-linear-gradient(top, #B52F2F 29%, #AB2424 68%);
+    background-image: -webkit-linear-gradient(top, #B52F2F 29%, #AB2424 68%);
+    background-image: -ms-linear-gradient(top, #B52F2F 29%, #AB2424 68%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0.29, #B52F2F),
+        color-stop(0.68, #AB2424)
+    );
+    position: relative;
+}
+.tabClass, .activeTabClass{
+    color: white;
+    font-size:12px;
+    font-weight:bold;
+    bottom:-1px;
+}
+.popupChamber {
+    float: left;
+    display: inline;
+    z-index: 99;
+    width: 96px;
+    padding: 6px 0 6px 6px;
+    bottom: 10px;
+    left: -103px;
+    position: absolute;
+    border-radius: 6px 0 0 5px;
+    border: 1px solid #B51423;
+    background-color: #990F1B;
+    height:62px;
+}
+.popupChamberClick{
+    padding: 0 3px;
+    height: 100%;
+    float: left;
+    display: inline;
+    cursor: pointer;
+    background-color: #BB0020;
+    margin-right: 2px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #D40024;
+}
+.popupChamberIcon{
+    margin-top:24px;
+}
+/**
+ * This is the class for the styling for all classes,
+ * except those that are active
+ */
+.tabClass{
+    margin-bottom:-5px;
+    background-color:#8c1f1f !important;
+}
+.activeTabClass{
+    background-color: #B51423 !important;
+}
+.popup-container{
+    color: white;
+    padding: 12px;
+    border-radius: 10PX;
+    position:relative;
+    z-index:100;
+}
+/** company name container, and its sub styles to style the company name */
+.company-name {
+    margin-bottom: 10px;
+}
+.float-left {
+    float: left;
+    margin-right: 5px;
+}
+.event-container {
+    margin: 5px 0;
+    border-bottom:1px solid #EFEFEF;
+    padding-bottom:5px;
+}
+.event-container p strong {
+    color: #3983A6;
+}
+/** company address container, and its sub styles to style the company address */
+.popup-company-address {
+    font-style: normal;
+}
+.address {
+    margin-bottom: 10px;
+}
+.company-phone {
+    list-style: none;
+    margin-bottom: 5px;
+}
+.company-youtubevideo {
+    padding-bottom: 5px;
+}
+.website {
+    padding-bottom: 4px;
+}
+.website a:link, .website a:visited, .website a:active {
+    color: white;
+}
+.website a:hover {
+    text-decoration: none;
+}
+.logo-container {
+    float: left;
+    height: 100%;
+    padding: 0 2px 0 2px;
+}
+.popup-company-logo {
+    width: 140px;
+}
+
+/** the styling for the chamber logo, different sub styles for each level */
+.chamber-logo {
+}
+/**
+ * IE9 Specific Styling
+ */
+.ie9 .chamber-logo_level1{
+    position: absolute !important;
+    right:0px !important;
+    top: 20px !important;
+}
+
+/** the styling for the company container, different sub styles for each level */
+.company-container {
+    position: relative;
+    z-index: 100;
+}
+.company-container_level4 {
+    float: right;
+    border-left: 1px solid #e20026;
+    padding-left: 4px;
+}
+/** the styling for the get directions link, different sub styles for each level */
+.chamber-directions-container_level1 {
+    bottom: 0;
+}
+.get-directions {
+    float: left;
+    position: absolute;
+    bottom: 0;
+}
+.get-directions_level1 {
+    bottom: 0;
+}
+.get-directions_level2 {
+    bottom: 0;
+    position: relative;
+}
+.get-directions_level3 {
+    bottom: 0;
+    position: relative;
+    float: left;
+}
+.get-directions_level4 {
+    bottom: 0;
+    position: relative;
+    float: left;
+}
+/** social media buttons styling, different sub styles for each level */
+.social-media-container {
+    padding:10px 0;
+    position: relative;
+    bottom: 10px;
+}
+.social-media-container_level2 {
+    top: 28px;
+}
+.social-media-container_level3 {
+    top: 28px;
+}
+.social-media-container_level4 {
+    top: 0;
+}

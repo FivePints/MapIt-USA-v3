@@ -1,0 +1,263 @@
+/**
+ * User Stylesheet for the front end of MapIt.
+ * 
+ * This is the color/theme styling for the front
+ * end of the MapIt system. This is the file that
+ * holds all of the color/font basesd styling for
+ * the front end.
+ * 
+ * @author Mike DeVita
+ * @copyright 2012 MapIt USA
+ * @version 2.0
+ */
+
+
+
+/*  =Generic Body Styling
+
+	This is the generic body user styling for the MapIt
+	System. This area shouldn't contain any specific container
+	area's (id/class).
+
+	COLORS IN THIS SECTION
+	 Body Background:       #EFEFEF
+	 Main Text:             #333333
+	 Links:                 #333333
+	 Links Hover:			#000000
+	------------------------------------------------------*/
+body{
+	background: url("/images/fhaz-body-background.png") left top repeat-x #FFF;
+    font-family: helvetica, Arial, sans-serif;
+    font-size: 11px;
+    color:%body_text_color%;
+}
+a:link, a:visited, a:active{
+	color:%body_link_color%;
+}
+a:hover{
+	color:%body_link_hover_color%;
+}
+
+/**
+ * temporary asset styles for FHAZ Example
+ */
+#fhaz-mapit-container{
+	margin:0 auto;
+	background: url('/images/fhaz-mapit-background.png') left top no-repeat #FFF;
+	width:1202px;
+	height:1058px;
+}
+.container_12{
+
+}
+#mapit-total-container{
+	-webkit-box-shadow: 0 0 30px 5px rgba(84, 84, 84, .35);
+	-moz-box-shadow: 0 0 30px 5px rgba(84, 84, 84, .35);
+	box-shadow: 0 0 30px 5px rgba(84, 84, 84, .35);
+}
+
+/*  =Toolbar
+
+	This is the user styling for the Toolbar, The Toolbar 
+	is located on the frontend, just above the Map Canvas.
+
+	COLORS IN THIS SECTION
+	 Toolbar Background:    Gradient(#223764, #445488)
+	 Toolbar Text:          #FFFFFF
+	 Links:                 #e5f47a
+	 Links Hover:			#FFFFFF
+	 Border Right:			#EFEFEF
+	------------------------------------------------------*/
+#toolbar{
+    font-size: 12px;
+    color: %toolbar_text_color%;
+    border-bottom: 1px solid %toolbar_bottom_border_color%;
+    
+    /* Non CSS3 Fallback */
+    background-color: %toolbar_background_color%;
+
+    background-image: -webkit-linear-gradient(bottom, %toolbar_background_gradient_color_end% 0%, %toolbar_background_gradient_color_start% 47%);
+    background-image: -moz-linear-gradient(bottom, %toolbar_background_gradient_color_end% 0%, %toolbar_background_gradient_color_start% 47%);
+    background-image: -o-linear-gradient(bottom, %toolbar_background_gradient_color_end% 0%, %toolbar_background_gradient_color_start% 47%);
+    background-image: -ms-linear-gradient(bottom, %toolbar_background_gradient_color_end% 0%, %toolbar_background_gradient_color_start% 47%);
+    background-image: linear-gradient(bottom, %toolbar_background_gradient_color_end% 0%, %toolbar_background_gradient_color_start% 47%);
+}
+#toolbar ul li:first-child {
+    border-right: 1px solid %toolbar_right_border_color%;
+}
+#toolbar a:link,#toolbar a:active,#toolbar a:visited {
+    color: %toolbar_link_color%;
+}
+
+#toolbar a:hover {
+    color: %toolbar_link_hover_color%;
+}
+
+
+/*	=Sidebar Right
+
+	this is the user styling for the right sidebar of the 
+	MapIt system.
+
+	COLORS IN THIS SECTION
+	 Sidebar Background:    whiteSmoke
+	 Sidebar AltRow Bg:		#deeadb
+	 h2 Text:             	#FFFFFF
+	 h2 Background:			Gradient(#223764, #445488)
+	 Company Name Links:    #333333
+	 Contact Name Links:	#4F95DA
+	 Border Right:			#EFEFEF
+	------------------------------------------------------*/
+/** right hand sidebar container */
+#map_sidebar h2 {
+	font-size: 12px;
+    color: %right_sidebar_title_text_color%;
+
+    /* Non CSS3 Fallback */
+    background-color: %right_sidebar_title_background_color%;
+    
+	background-image: -webkit-linear-gradient(bottom, %right_sidebar_title_background_gradient_color_end% 0%, %right_sidebar_title_background_gradient_color_start% 47%);
+	background-image: -moz-linear-gradient(bottom, %right_sidebar_title_background_gradient_color_end% 0%, %right_sidebar_title_background_gradient_color_start% 47%);
+	background-image: -o-linear-gradient(bottom, %right_sidebar_title_background_gradient_color_end% 0%, %right_sidebar_title_background_gradient_color_start% 47%);
+	background-image: -ms-linear-gradient(bottom, %right_sidebar_title_background_gradient_color_end% 0%, %right_sidebar_title_background_gradient_color_start% 47%);
+	background-image: linear-gradient(bottom, %right_sidebar_title_background_gradient_color_end% 0%, %right_sidebar_title_background_gradient_color_start% 47%);
+}
+#map_sidebar section > div {
+    background-color: %right_sidebar_section_background_color%;
+    border: 1px solid %right_sidebar_section_border_color%;
+    border-left:0;
+    border-right:0;
+}
+/** sidebar map legend styling */
+.legend-item p {
+    font-size: 9px;
+}
+/* individual sidebar container styling */
+.sidebarAltRow {
+    background-color: %right_sidebar_alternating_row_background_color%;
+}
+.sidebar-company-container {
+    font-size: 10px;
+}
+.sidebar-company-name a:link {
+    color: %right_sidebar_company_name_link_color%;
+    text-decoration: none;
+}
+.sidebar-contact-name a:link {
+    color: %right_sidebar_contact_name_link_color%;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+
+/*  =Sidebar Left
+
+	this is the user styling for the left sidebar section 
+	of the MapIt system.
+
+	COLORS IN THIS SECTION
+	 Sidebar Controls Background:    #EFEFEF
+	 Sidebar Controls Border:		 #c3c3c3
+	 Sidebar Text Input Border:		 #cccccc
+	 AutoComplete Background:		 whiteSmoke
+	 AutoComplete Border:			 #cccccc
+	 AutoComplete Hover Item:		 #054F12
+	 Alternate Row Background: 		 #A8C7AE
+	 Category Border:				 #cccccc
+	 Submit/Reset Text Color:		 #333333
+	 Reset Background:				 whitesmoke
+	 Reset Border:					 #cccccc
+	 Submit Background:				 #F9CC32
+	 Submit Background:				 Gradient(#FFC400, #FFDD57)
+	 Submit Border:					 #FFC400
+	 Toggle Button Background:		 #333333
+	 Toggle Button Border:			 #666666
+	 Toggle Button Text Color:		 #EFEFEF
+	------------------------------------------------------*/
+
+/**
+ * Sidebar container styling
+ */
+.left_sidebar_control {
+    background-color: %left_sidebar_background_color%;
+    border-right: 2px solid %left_sidebar_right_border_color%;
+}
+.left_sidebar_button_container{
+	-webkit-transform: rotate(-90deg);
+}
+.button{
+	background: %left_sidebar_button_background%;
+	border:1px solid %left_sidebar_button_border_color%;
+	border-top:0;
+	color: %left_sidebar_button_text_color% !important;
+
+}
+/**
+ * Browse Directory Specific Styling
+ */
+#search-sidebar input[type="text"] {
+	border: 1px solid %left_sidebar_search_field_border_color%;
+}
+.ui-autocomplete{
+	background: %left_sidebar_autocomplete_background_color%;
+	border: 1px solid %left_sidebar_autocomplete_border_color%;
+}
+.lookupaltrow {
+    background-color: %left_sidebar_autocomplete_alternating_row_background_color%;
+}
+.ui-state-hover {
+	background-color: %left_sidebar_autocomplete_background_hover_color%;
+	color: %left_sidebar_background_hover_color%;
+	padding: 3px;
+}
+/** left sidebar, browse by category */
+#browse-by-category {
+    border-top: 1px solid %left_sidebar_browse_by_category_border_color%;
+}
+#reset, #submit{
+    color: %left_sidebar_submit_reset_text_color%;
+    font-size: 12px;
+    font-weight: bold;
+}
+#reset {
+    background-color: %left_sidebar_reset_background_color%;
+    border: 1px solid %left_sidebar_reset_border_color%;
+}
+#submit{
+    background-color: %left_sidebar_submit_background_color%;
+    background-image: -webkit-linear-gradient(bottom, %left_sidebar_background_gradient_color_end% 19%, %left_sidebar_background_gradient_color_start% 65%);
+    background-image: -moz-linear-gradient(bottom, %left_sidebar_background_gradient_color_end% 19%, %left_sidebar_background_gradient_color_start% 65%);
+    background-image: -o-linear-gradient(bottom, %left_sidebar_background_gradient_color_end% 19%, %left_sidebar_background_gradient_color_start% 65%);
+    background-image: -ms-linear-gradient(bottom, %left_sidebar_background_gradient_color_end% 19%, %left_sidebar_background_gradient_color_start% 65%);
+    background-image: linear-gradient(bottom, %left_sidebar_background_gradient_color_end% 19%, %left_sidebar_background_gradient_color_start% 65%);
+    -image background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.19, %left_sidebar_background_gradient_color_end%), color-stop(0.65, %left_sidebar_background_gradient_color_start%) );
+    border: 1px solid %left_sidebar_submit_border_color%;
+}
+
+
+/*  =Popup Styling
+
+	this is the styling for the popups of the map. There
+	are template styles defined for styles that apply to
+	all of the various levels. Then there are level based
+	styles for each class.
+
+	COLORS IN THIS SECTION
+	 Company Container Left Border:			#EFEFEF
+	------------------------------------------------------*/
+.popup-company-name {
+    font-size: 12px;
+}
+.company-container_level2 {
+    border-left: 1px solid %popup_container_level_2_border_background_color%;
+}
+.company-container_level3 {
+    border-left: 1px solid %popup_container_level_3_border_background_color%;
+}
+.company-container_level4 {
+    border-left: 1px solid %popup_container_level_4_border_background_color%;
+}
+	
+	
+	
+		
