@@ -19,83 +19,88 @@ $('#graph-hero-container .close').click(function(){
 /** The popup for the thumbnail preview for advertisement images in the backend */
 $('.advertisement-preview').popover();
 
+
+function showLoading(obj){
+    //Where to insert the element
+    //Where to get the height/width from
+    var $object = obj;
+    var loadingHtml = '<div class="loading"><img src="/images/loader_darkbg.gif" /></div>';
+
+    $object.before(loadingHtml);
+
+    var $height = $object.innerHeight();
+    var $loadingImgHeight = $('.loading img').height() / 2;
+    var $loadingImgMargin = $height/ 2 - $loadingImgHeight;
+    var $width =  $object.innerWidth();
+
+    $('.loading').height($height).width($width);
+    $('.loading img').css('margin-top', $loadingImgMargin);
+    $('.loading').show();
+}
+
+function hideLoading(){
+    $('.loading').remove();
+}
+
 $('.item-status').click(function(e){
     var $this = $(this);
     var manageUrl = $(this).attr('href');
     var dataContent = $(this).data();
     console.log(status);
 
-    $.ajax({
-        url: manageUrl,
-        type: "POST",
-        dataType: "JSON",
-        data: { "data": dataContent },
-        success: function(d, status, jqXHR){
-            if( dataContent.status == 1 ){
-                $this.removeClass('status-link-deactivate');
-                $this.addClass('status-link-activate');
-                $this.data('status', '0');
-            }else{
-                $this.removeClass('status-link-activate');
-                $this.addClass('status-link-deactivate');
-                $this.data('status', '1');
+    showLoading( $this.closest('tr') );
+    setTimeout(function(){
+            $.ajax({
+            url: manageUrl,
+            type: "POST",
+            dataType: "JSON",
+            data: { "data": dataContent },
+            success: function(d, status, jqXHR){
+                if( dataContent.status == 1 ){
+                    $this.removeClass('status-link-deactivate');
+                    $this.addClass('status-link-activate');
+                    $this.data('status', '0');
+                }else{
+                    $this.removeClass('status-link-activate');
+                    $this.addClass('status-link-deactivate');
+                    $this.data('status', '1');
+                }
+                hideLoading();
+                throwMessage(d);
+            },
+            error: function(d, r, xhr){
+                hideLoading();
+                throwMessage(r);
             }
-            throwMessage(d);
-        },
-        error: function(d, r, xhr){
-            throwMessage(r);
-        }
-    });
-
+        });
+    }, '500');
     return false;
 });
-
-function showLoading(obj, placement){
-    //Where to insert the element
-    //Where to get the height/width from
-    var $object = $(obj);
-    var loadingHtml = '<div class="loading"><img src="/images/loader_darkbg.gif" /></div>';
-
-    $object.before(loadingHtml);
-
-    var $height = $object.innerHeight();
-    var $loadingImgHeight = $('.loading img').height();
-    var $loadingImgMargin = $height/ 2 - $loadingImgHeight;
-
-    var $width =  $object.innerWidth();
-
-    $('.loading').height($height).width($width);
-    $('.loading img').css('margin-top', $loadingImgMargin)
-    $('.loading').show();
-
-}
-
-function hideLoading(){
-    $('.loading').hide();
-}
 
 $('.item-delete').click(function(e){
     var $this = $(this);
     var manageUrl = $(this).attr('href');
     var dataContent = $(this).data();
-    console.log(status);
-    showLoading();
-    $.ajax({
-        url: manageUrl,
-        type: "POST",
-        dataType: "JSON",
-        data: { "data": dataContent },
-        success: function(d, status, jqXHR){
-            $this.closest('tr').remove();
-            hideLoading();
-            throwMessage(d);
 
-        },
-        error: function(d, r, xhr){
-            hideLoading();
-            throwMessage(r);
-        }
-    });
+    showLoading( $this.closest('tr') );
+    setTimeout(function(){
+        $.ajax({
+            url: manageUrl,
+            type: "POST",
+            dataType: "JSON",
+            data: { "data": dataContent },
+            success: function(d, status, jqXHR){
+                $this.closest('tr').remove();
+                hideLoading();
+                throwMessage(d);
+
+            },
+            error: function(d, r, xhr){
+                hideLoading();
+                throwMessage(r);
+            }
+        });
+    }, '500');
     return false;
 });
 

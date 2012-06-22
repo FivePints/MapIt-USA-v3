@@ -147,6 +147,9 @@ body{
   height: 108px;
   width: 1137px;
   position: absolute;
+  text-align:center;
+  margin:0 auto;
+  border-radius:6px;
   background: url('/images/transparent_loading_background.png') left top repeat;
 }
 
