@@ -9,11 +9,15 @@
 application/cache/*
 !application/cache/index.html
 !application/cache/.htaccess
-assets/cache/*
-!application/cache/index.html
+
+/assets/cache/*
+/assets/cache/info.cache
+!/assets/cache/index.html
+
 application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
+
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
 user_guide_src/cilexer/dist/*
