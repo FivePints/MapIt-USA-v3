@@ -20,15 +20,6 @@
 
                 <div class="span9">
                     <h1><?= $template['title']; ?></h1>
-                    <?php if ($page['announcements'] != FALSE){
-                        foreach ($page['announcements'] as $announcements): ?>
-                            <div class="admin-notice alert <?= $announcements->message_type; ?>">
-                                <?php if ($announcements->hideable != 0): ?><span class="hide">x</span><?php endif; ?>
-                                <?php if ($announcements->title != ''): ?><strong><?= $announcements->title; ?>:</strong> <?php endif;?>
-                                <?= $announcements->message; ?>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php } ?>
                     <?= $template['body']; ?>
                 </div>
             </div>

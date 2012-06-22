@@ -64,7 +64,7 @@ class Map_config extends CI_Model {
      * for display on the user/admin panel.
      */
     function getAnnouncements(){
-        $this->db->from('announcements')->where('expire_timestamp >', time())->order_by('timestamp', 'DESC');
+        $this->db->from('announcements')->where('expire_timestamp >', time() )->order_by('timestamp', 'DESC');
         $query = $this->db->get();
         if ($query->num_rows() > 0){
             return $query->result();

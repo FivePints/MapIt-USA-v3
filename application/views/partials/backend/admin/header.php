@@ -44,7 +44,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#"><img src="<?= base_url('images/logo.png'); ?>" /></a>
+        <a class="brand" href="#"><img src="<?= base_url('images/logo.png'); ?>" width="60px" /></a>
 
         <div class="btn-group pull-right">
           <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -57,17 +57,19 @@
             <li><a href="<?= base_url('/auth/logout'); ?>">Sign Out</a></li>
           </ul>
         </div>
+        <?php if ($page['announcements'] ): ?>
         <div class="btn-group pull-right nav-notice">
-          <span class="badge badge-info nav-notice-button">8</span>
+          <span class="badge badge-info nav-notice-button"><?php echo count($page['announcements']); ?></span>
           <div class="notice-container">
             <span class="notice-arrow"></span>
             <ul class="notice-container-list">
-              <li><span class="label label-warning">Warning</span><span class="notice-message">Warning 12315125</span><i class="notice-remove icon-remove-circle"></i></li>
-              <li><span class="label label-success">success</span><span class="notice-message">Warning 12315125</span><i class="notice-remove icon-remove-circle"></i></li>
-              <li><span class="label label-important">important</span><span class="notice-message">Warning 12315125</span><i class="notice-remove icon-remove-circle"></i></li>
+              <?php foreach($page['announcements'] as $a): ?>
+              <li><span class="label label-<?= $a->message_type; ?>"><?= $a->message_type; ?></span><span class="notice-message"> <strong><?= $a->title; ?></strong> <span class="notice-description"><?= $a->message; ?></span></span></li>
+              <?php endforeach; ?>
             </ul>
           </div>
         </div>
+      <?php endif; ?>
         <div class="nav-collapse">
           <ul class="nav">
             <li class="active"><a href="<?= base_url('/admin/index'); ?>">Home</a></li>

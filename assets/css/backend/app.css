@@ -55,45 +55,61 @@ body{
 }
 .notice-container{
   display:none;
-  top: 31px;
-  right: -230%;
-  float: right;
+  top: 37px;
+  right: -100px;
   position: absolute;
 }
 .notice-container .notice-arrow{
-position: absolute;
-width: 0;
-height: 0;
-border-left: 5px solid transparent;
-border-right: 5px solid transparent;
-border-bottom: 5px solid #EFEFEF;
-left: 50%;
-top: -5px;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 9px solid #EFEFEF;
+  left: 59%;
+  top: -9px;
 }
 .notice-container ul{
-border: 3px solid white;
-list-style: none;
-margin: 0;
-padding: 0;
-background: #EFEFEF;
-border-radius: 6px;
-width: 200px;
-box-shadow: 0 0 6px #C3C3C3;
+  font-size:9px;
+  max-height: 200px;
+  min-height:140px;
+  border: 3px solid white;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #EFEFEF;
+  border-radius: 6px;
+  width: 300px;
+  box-shadow: 0 1px 3px #C3C3C3;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 .notice-container ul li{
   padding:6px;
   position:relative;
+  border-bottom: 1px solid #CECECE;
+  border-top: 1px solid white;
+}
+.notice-container ul li:first-child{
+  color: #333;
+  border-top: 0;
+  background-color: white;
+}
+.notice-container ul li:last-child{
+  border-bottom:0;
 }
 .notice-container .label{
   margin-right:3px;
 }
-.notice-container ul li span{
+.notice-message{
   position:relative;
+}
+.notice-description{
+  display:block;
 }
 .notice-container ul li:hover{
   color:#333;
   background: white;
-  border-radius:6px;
 }
 .notice-container i {
   margin-left: 8px;
