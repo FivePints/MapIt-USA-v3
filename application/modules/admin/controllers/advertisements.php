@@ -25,8 +25,8 @@ class Advertisements extends ADMIN_Controller{
 		$this->template
 			 ->title('Advertisement Management')
 			 ->set_breadcrumb('Advertisement Management', '/admin/advertisements/index')
-			 ->append_metadata(" var oTable = $('#view-advertisements-table').dataTable({ 'aaSorting': [[3, 'asc']] });")
-			 ->build('admin/advertisements/viewadvertisements', $this->data);
+			 //->append_metadata(" var oTable = $('#view-advertisements-table').dataTable({ 'aaSorting': [[3, 'asc']] });")
+			 ->build('admin/advertisements/index', $this->data);
 	}
 	/**
 	 * displays the add advertisement form
@@ -124,15 +124,20 @@ class Advertisements extends ADMIN_Controller{
 	 * @version  1.0
 	 */
 	public function status($id){
- 		if ( $this->input->post('status') == 1 ){
+		$this->output->enable_profiler(false);
+		$data = $this->input->post('data');
+
+ 		if ( $data['status'] == 1 ){
  			self::_deactivate($id);
- 		}elseif ( $this->input->post('status') == 0 ){
+ 		}elseif ( $data['status'] == 0 ){
  			self::_activate($id);
  		}else{
  			return false;
  		}
+
 	}
 	public function delete($id){
+		$this->output->enable_profiler(false);
 		if ( $this->map_advertisements->delete($id) ){
 			/** add( message, type[success|error], echo[default|false] ) */
 			$r[] = array(

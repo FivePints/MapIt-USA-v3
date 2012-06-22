@@ -44,6 +44,67 @@ body{
     padding: 2px 8px;
     margin-top: 2px;
   }
+
+
+/**
+ * Notice Styling
+ */
+.nav-notice{
+  margin-top:6px !important;
+  cursor:pointer;
+}
+.notice-container{
+  display:none;
+  top: 31px;
+  right: -230%;
+  float: right;
+  position: absolute;
+}
+.notice-container .notice-arrow{
+position: absolute;
+width: 0;
+height: 0;
+border-left: 5px solid transparent;
+border-right: 5px solid transparent;
+border-bottom: 5px solid #EFEFEF;
+left: 50%;
+top: -5px;
+}
+.notice-container ul{
+border: 3px solid white;
+list-style: none;
+margin: 0;
+padding: 0;
+background: #EFEFEF;
+border-radius: 6px;
+width: 200px;
+box-shadow: 0 0 6px #C3C3C3;
+}
+.notice-container ul li{
+  padding:6px;
+  position:relative;
+}
+.notice-container .label{
+  margin-right:3px;
+}
+.notice-container ul li span{
+  position:relative;
+}
+.notice-container ul li:hover{
+  color:#333;
+  background: white;
+  border-radius:6px;
+}
+.notice-container i {
+  margin-left: 8px;
+  cursor:pointer;
+  top: 75%;
+  right:5px;
+  display: inline;
+  position: absolute;
+  float: right;
+  margin-top: -17px;
+}
 /*  =Admin Area
   ------------------------------------------------------ */
   #graph-hero-container{
@@ -58,5 +119,44 @@ body{
     text-align:center;
   }
   .graph{
+    display:none;
+  }
+
+/**
+ * Item Modification Styling 
+ *
+ * This is the styling for the icons on the right hand side
+ * of the tables.
+ */
+.status-link-deactivate:hover, .status-link-deactivate:active,
+.status-link-deactivate:visited, .status-link-deactivate:link{
+  color: #8db72a;
+  text-decoration:none;
+}
+.status-link-activate:hover, .status-link-activate:active,
+.status-link-activate:visited, .status-link-activate:link{
+  color:#f68e00;
+  text-decoration:none;
+}
+
+.manage-item a {
+  padding-right: 6px;
+}
+.manage-item a:last-child {
+  padding-right: 0;
+}
+
+.manage-icon:link, .manage-icon:hover,
+.manage-icon:visited, .manage-icon:active{
+  text-decoration:none;
+}
+
+.item-delete:link, .item-delete:hover,
+.item-delete:visited, .item-delete:active{
+  color:#B51423;
+}
+/*  =Advertisement Styling
+  ------------------------------------------------------ */
+  .advertisement-thumbnail{
     display:none;
   }

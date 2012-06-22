@@ -75,7 +75,7 @@ $autoload['packages'] = array();
 |
 */
 
-$autoload['sparks'] = array('assets/1.5.1', 'curl/1.2.1', 'template/1.9.0', 'video_helper/1.0.5', 'ion_auth/2.2.4');
+$autoload['sparks'] = array('assets/1.5.1', 'curl/1.2.1', 'template/1.9.0', 'video_helper/1.0.5', 'ion_auth/2.2.4', 'Debug-Toolbar/1.0.7');
 
 /*
 | -------------------------------------------------------------------

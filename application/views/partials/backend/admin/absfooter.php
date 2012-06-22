@@ -1,5 +1,5 @@
   <?php Assets::cdn( array('jquery','jqueryui') ); ?>
-  <?php Assets::js_group('backend_footer', array('backend/bootstrap.min.js', 'backend/jquery.validate.js', 'backend/bootstrap-dropdown.js', 'backend/bootstrap-tab.js', 'backend/chosen.jquery.js', 'backend/map.js', 'backend/plugins.js', 'backend/script.js') ); ?>
+  <?php Assets::js_group('backend_footer', array('backend/bootstrap.min.js', 'backend/jquery.validate.js', 'backend/bootstrap-dropdown.js', 'backend/bootstrap-tab.js', 'backend/bootstrap-tooltip.js', 'backend/bootstrap-popover.js', 'backend/chosen.jquery.js', 'backend/map.js', 'backend/plugins.js', 'backend/script.js') ); ?>
 
   <?php Assets::js_group('visualize', array('backend/jquery.visualize.js') ); ?>
   <?php Assets::css_group('visualize', array('backend/jquery.visualize.css') ); ?>

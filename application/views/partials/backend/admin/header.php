@@ -32,7 +32,7 @@
        For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
   <?php Assets::js_group('header', array('shared/modernizr.min.js') ); ?>
 <!-- CSS: implied media=all -->
-  <?php Assets::css( array('backend/bootstrap.min.css', 'backend/bootstrap-responsive.min.css', 'backend/app.css') ); ?>
+  <?php Assets::css( array('backend/bootstrap.min.css', 'backend/bootstrap-responsive.min.css', 'backend/font-awesome.css', 'backend/app.css') ); ?>
 </head>
 
 <body>
@@ -45,6 +45,7 @@
           <span class="icon-bar"></span>
         </a>
         <a class="brand" href="#"><img src="<?= base_url('images/logo.png'); ?>" /></a>
+
         <div class="btn-group pull-right">
           <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
             <i class="icon-user"></i> <?= $user['username']; ?>
@@ -55,6 +56,17 @@
             <li class="divider"></li>
             <li><a href="<?= base_url('/auth/logout'); ?>">Sign Out</a></li>
           </ul>
+        </div>
+        <div class="btn-group pull-right nav-notice">
+          <span class="badge badge-info nav-notice-button">8</span>
+          <div class="notice-container">
+            <span class="notice-arrow"></span>
+            <ul class="notice-container-list">
+              <li><span class="label label-warning">Warning</span><span class="notice-message">Warning 12315125</span><i class="notice-remove icon-remove-circle"></i></li>
+              <li><span class="label label-success">success</span><span class="notice-message">Warning 12315125</span><i class="notice-remove icon-remove-circle"></i></li>
+              <li><span class="label label-important">important</span><span class="notice-message">Warning 12315125</span><i class="notice-remove icon-remove-circle"></i></li>
+            </ul>
+          </div>
         </div>
         <div class="nav-collapse">
           <ul class="nav">

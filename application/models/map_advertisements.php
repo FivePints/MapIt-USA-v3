@@ -93,6 +93,7 @@ class Map_advertisements extends CI_Model {
             a.id,
             a.type,
             a.status,
+            a.title,
             a.description,
             a.filename,
             a.url,

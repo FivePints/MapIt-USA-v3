@@ -96,10 +96,6 @@ class ADMIN_Controller extends CI_Controller {
             'levels'     => $this->mapLevels->getAllLevels()
             );
 
-        if($this->data['mapConfig']->events == 1){
-            $this->data['map']['eventCategories'] = $this->mapCategories->getEventCategories();
-        }
-
         $this->data['page'] = array(
             'announcements' => $this->mapConfig->getAnnouncements()
         );
