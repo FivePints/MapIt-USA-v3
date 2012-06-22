@@ -1,5 +1,10 @@
-<h2>All Advertisements</h2>
-<table class="table table-striped">
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<table class="table table-striped <?php if($advertisements): echo 'dataTable'; endif; ?>">
 	<thead>
 		<tr>
 			<th class="item-center">Image Name</th>
@@ -11,7 +16,9 @@
 		</tr>
 	</thead>
 	<tbody>
-	<?php foreach ($advertisements as $a){ 
+	<?php
+	if( $advertisements ):
+	foreach ($advertisements as $a){
 	switch($a->status){
 		case '1':
 			$statusClass = 'status-link-deactivate';	
@@ -38,6 +45,10 @@
 				<a href="<?= site_url('/admin/advertisements/delete/'.$a->id); ?>" class="manage-icon item-delete"><i class="icon-remove-sign"></i></a>
 			</td>
 		</tr>
-	<?php } ?>
+	<?php } else:?>
+		<tr>
+			<td valign="top" colspan="6" class="">No data available in table</td>
+		</tr>
+	<?php endif; ?>
 	</tbody>
 </table>

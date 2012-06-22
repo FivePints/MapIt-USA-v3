@@ -23,7 +23,7 @@ class Advertisements extends ADMIN_Controller{
 	public function index(){
 		$this->data['advertisements'] = $this->map_advertisements->getAdvertisementsWithClicks();
 		$this->template
-			 ->title('Advertisement Management')
+			 ->title('All Advertisements')
 			 ->set_breadcrumb('Advertisement Management', '/admin/advertisements/index')
 			 //->append_metadata(" var oTable = $('#view-advertisements-table').dataTable({ 'aaSorting': [[3, 'asc']] });")
 			 ->build('admin/advertisements/index', $this->data);

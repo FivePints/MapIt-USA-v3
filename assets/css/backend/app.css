@@ -121,6 +121,7 @@ body{
   float: right;
   margin-top: -17px;
 }
+
 /*  =Admin Area
   ------------------------------------------------------ */
   #graph-hero-container{
@@ -185,6 +186,36 @@ body{
 .item-delete:link, .item-delete:hover,
 .item-delete:visited, .item-delete:active{
   color:#B51423;
+}
+
+/**
+ * dataTable Sort Styling
+ */
+table.table thead .sorting,
+table.table thead .sorting_asc,
+table.table thead .sorting_desc,
+table.table thead .sorting_asc_disabled,
+table.table thead .sorting_desc_disabled {
+    cursor: pointer;
+}
+
+table.table thead .sorting { background: url('/images/sort_both.png') no-repeat center right; }
+table.table thead .sorting_asc { background: url('/images/sort_asc.png') no-repeat center right; }
+table.table thead .sorting_desc { background: url('/images/sort_desc.png') no-repeat center right; }
+
+table.table thead .sorting_asc_disabled { background: url('/images/sort_asc_disabled.png') no-repeat center right; }
+table.table thead .sorting_desc_disabled { background: url('/images/sort_desc_disabled.png') no-repeat center right; }
+
+.datatables_length select {
+  width: 100px;
+}
+.dataTable_topBar{
+  height: 28px;
+  padding: 6px;
+  background-color: #ECECEC;
+}
+.dataTables_filter input[type="text"]{
+  height:28px !important;
 }
 /*  =Advertisement Styling
   ------------------------------------------------------ */
