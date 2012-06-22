@@ -1,50 +1,111 @@
-body{
-  margin-top:50px;
-  background: url('/images/paper_02.png') left top repeat;
-}
-
-.login-body{
-  margin-top:0;
-}
-
-.environment {
-    padding: 10px;
-    margin-bottom:30px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-    background-color: #F74242;
-    border-bottom: 3px solid #B53232;
-}
-.environment-backend{
-  margin-top:40px;
-}
-.h1-title{
-  margin-bottom:10px;
-}
-/*  =Login Form
-
+/*  =Admin Generic Styling
+    This section is for all of the generic styling
+    throughout the admin area.
   ------------------------------------------------------ */
-  .login-box{
+  body{
+    margin-top:50px;
+    background: url('/images/paper_01.png') left top repeat;
+  }
+
+  .login-body{
+    margin-top:0;
+    background: url('/images/paper_02.png') left top repeat;
+  }
+
+  .environment {
+      padding: 10px;
+      margin-bottom:30px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      color: white;
+      background-color: #F74242;
+      border-bottom: 3px solid #B53232;
+  }
+  .environment-backend{
+    margin-top:40px;
+  }
+  .h1-title{
     margin-bottom:10px;
   }
-  .login-input{
-    width:97%;
-  }
-  #powered-by-mapit a{
-    text-decoration:none;
-  }
-  #login-form{
-    margin-bottom:0;
-  }
-  label.error {
-    font-weight: bold;
-    color: red;
-    padding: 2px 8px;
-    margin-top: 2px;
+
+  /**
+   * Loading Box
+   */
+  .loading{
+    float: left;
+    height: 108px;
+    width: 1137px;
+    position: absolute;
+    text-align:center;
+    margin:0 auto;
+    border-radius:6px;
+    background: url('/images/transparent_loading_background.png') left top repeat;
   }
 
+  /**
+   * Item Modification Styling
+   *
+   * This is the styling for the icons on the right hand side
+   * of the tables.
+   */
+  .status-link-deactivate:hover, .status-link-deactivate:active,
+  .status-link-deactivate:visited, .status-link-deactivate:link{
+    color: #8db72a;
+    text-decoration:none;
+  }
+  .status-link-activate:hover, .status-link-activate:active,
+  .status-link-activate:visited, .status-link-activate:link{
+    color:#f68e00;
+    text-decoration:none;
+  }
+
+  .manage-item a {
+    padding-right: 6px;
+  }
+  .manage-item a:last-child {
+    padding-right: 0;
+  }
+
+  .manage-icon:link, .manage-icon:hover,
+  .manage-icon:visited, .manage-icon:active{
+    text-decoration:none;
+  }
+
+  .item-delete:link, .item-delete:hover,
+  .item-delete:visited, .item-delete:active{
+    color:#B51423;
+  }
+
+  /**
+   * dataTable Sort Styling
+   */
+  table.table thead .sorting,
+  table.table thead .sorting_asc,
+  table.table thead .sorting_desc,
+  table.table thead .sorting_asc_disabled,
+  table.table thead .sorting_desc_disabled {
+      cursor: pointer;
+  }
+
+  table.table thead .sorting { background: url('/images/sort_both.png') no-repeat center right; }
+  table.table thead .sorting_asc { background: url('/images/sort_asc.png') no-repeat center right; }
+  table.table thead .sorting_desc { background: url('/images/sort_desc.png') no-repeat center right; }
+
+  table.table thead .sorting_asc_disabled { background: url('/images/sort_asc_disabled.png') no-repeat center right; }
+  table.table thead .sorting_desc_disabled { background: url('/images/sort_desc_disabled.png') no-repeat center right; }
+
+  .datatables_length select {
+    width: 100px;
+  }
+  .dataTable_topBar{
+    height: 28px;
+    padding: 6px;
+    background-color: #ECECEC;
+  }
+  .dataTables_filter input[type="text"]{
+    height:28px !important;
+  }
 
 /**
  * Notice Styling
@@ -121,8 +182,42 @@ body{
   float: right;
   margin-top: -17px;
 }
+.fieldset-light{
+  background-color:white;
+  padding:10px;
+}
+.form-actions-notopmargin{
+  margin-top:0;
+}
 
-/*  =Admin Area
+  /*  =Login Form
+      This section is for all of the styling for the login
+      form for the auth area.
+  ------------------------------------------------------ */
+  .login-box{
+    margin-bottom:10px;
+  }
+  .login-input{
+    width:97%;
+  }
+  #powered-by-mapit a{
+    text-decoration:none;
+  }
+  #login-form{
+    margin-bottom:0;
+  }
+  label.error {
+    font-weight: bold;
+    color: red;
+    padding: 2px 8px;
+    margin-top: 2px;
+  }
+
+
+/*  =Admin Dashboard Area
+    This section is for the styling of the admin dashboard
+    which is the primary default homepage for the admin
+    area.
   ------------------------------------------------------ */
   #graph-hero-container{
     padding:30px;
@@ -140,83 +235,6 @@ body{
   }
 
 
-/**
- * Loading Box
- */
-.loading{
-  float: left;
-  height: 108px;
-  width: 1137px;
-  position: absolute;
-  text-align:center;
-  margin:0 auto;
-  border-radius:6px;
-  background: url('/images/transparent_loading_background.png') left top repeat;
-}
-
-/**
- * Item Modification Styling 
- *
- * This is the styling for the icons on the right hand side
- * of the tables.
- */
-.status-link-deactivate:hover, .status-link-deactivate:active,
-.status-link-deactivate:visited, .status-link-deactivate:link{
-  color: #8db72a;
-  text-decoration:none;
-}
-.status-link-activate:hover, .status-link-activate:active,
-.status-link-activate:visited, .status-link-activate:link{
-  color:#f68e00;
-  text-decoration:none;
-}
-
-.manage-item a {
-  padding-right: 6px;
-}
-.manage-item a:last-child {
-  padding-right: 0;
-}
-
-.manage-icon:link, .manage-icon:hover,
-.manage-icon:visited, .manage-icon:active{
-  text-decoration:none;
-}
-
-.item-delete:link, .item-delete:hover,
-.item-delete:visited, .item-delete:active{
-  color:#B51423;
-}
-
-/**
- * dataTable Sort Styling
- */
-table.table thead .sorting,
-table.table thead .sorting_asc,
-table.table thead .sorting_desc,
-table.table thead .sorting_asc_disabled,
-table.table thead .sorting_desc_disabled {
-    cursor: pointer;
-}
-
-table.table thead .sorting { background: url('/images/sort_both.png') no-repeat center right; }
-table.table thead .sorting_asc { background: url('/images/sort_asc.png') no-repeat center right; }
-table.table thead .sorting_desc { background: url('/images/sort_desc.png') no-repeat center right; }
-
-table.table thead .sorting_asc_disabled { background: url('/images/sort_asc_disabled.png') no-repeat center right; }
-table.table thead .sorting_desc_disabled { background: url('/images/sort_desc_disabled.png') no-repeat center right; }
-
-.datatables_length select {
-  width: 100px;
-}
-.dataTable_topBar{
-  height: 28px;
-  padding: 6px;
-  background-color: #ECECEC;
-}
-.dataTables_filter input[type="text"]{
-  height:28px !important;
-}
 /*  =Advertisement Styling
   ------------------------------------------------------ */
   .advertisement-thumbnail{

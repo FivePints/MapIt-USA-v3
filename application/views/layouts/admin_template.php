@@ -19,6 +19,12 @@
                 </div><!--/span-->
 
                 <div class="span9">
+                    <?php if( $this->session->flashdata('messages') ): $m = $this->session->flashdata('messages'); ?>
+                        <div class="alert alert-<?= $m['type']; ?>">
+                          <button class="close" data-dismiss="alert">×</button>
+                          <?= $m['message']; ?>
+                        </div>
+                    <?php endif; ?>
                     <h1><?= $template['title']; ?></h1>
                     <?= $template['body']; ?>
                 </div>

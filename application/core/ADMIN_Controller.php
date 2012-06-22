@@ -100,6 +100,8 @@ class ADMIN_Controller extends CI_Controller {
             'announcements' => $this->mapConfig->getAnnouncements()
         );
 
+        $this->data['assets'] = array();
+
         $this->template
             ->set_partial('backend-sidebar', 'partials/backend/admin/sidebar')
             ->set_partial('backend-header', 'partials/backend/admin/header')

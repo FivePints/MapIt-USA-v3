@@ -22,6 +22,14 @@ class Advertisements extends ADMIN_Controller{
 	 */
 	public function index(){
 		$this->data['advertisements'] = $this->map_advertisements->getAdvertisementsWithClicks();
+
+		$this->data['assets'] = array(
+			array(
+				'type' => 'js',
+				'assets' => array( 'backend/jquery.dataTables.min.js', 'backend/jquery.dataTables.user.js' ),
+			),
+		);
+
 		$this->template
 			 ->title('All Advertisements')
 			 ->set_breadcrumb('Advertisement Management', '/admin/advertisements/index')
@@ -39,73 +47,70 @@ class Advertisements extends ADMIN_Controller{
 	 * @version  1.0
 	 */	
 	public function add(){
-		$this->template
-			 ->title('Add Advertisement')
-			 ->set_breadcrumb('Advertisement Management', '/admin/advertisements/index')
-			 ->build('admin/advertisements/add', $this->data);
-	}
-	/**
-	 * Handle the add Advertisement form details
-	 * sanitize the submission and submit it to the
-	 * database.
-	 * @return [type] [description]
-	 */
-	public function processAdd(){
-		$validationErrors = self::_validateForm();
-		if ($validationErrors != 1){
-			$r[] = array(
-				'message' => 'Unable to add the advertisement due to validation errors',
-				'type' => 'error'
-			);
-			$this->message->add(400, $r);
-			redirect( $_SERVER['HTTP_REFERER'] );
-		}else{
-			$this->timestamp = time();
-			if($this->youtube){
-				#load the video helper spark
-				$this->load->spark('video_helper/1.0.2');
-				#load the video helper to parse vimeo and youtube videos
-				$this->load->helper('video');
-				$this->youtube = youtube_id($this->youtube);
-				$this->picture = '';
-
-			}elseif($_FILES['picture']['name'] != ''){
-				$this->picture = $this->file_upload->uploadAdvertisement($_FILES, $this->timestamp );
-			}else{
-				$this->youtube = '';
-				$this->picture = '';
-			}
-			$advertisement = array(	
-				'youtube_id'  => $this->youtube,
-				'status'      => $this->status,
-				'timestamp'   => $this->timestamp,
-				'type'        => $this->type,
-				'filename'    => $this->picture,
-				'url'         => $this->url,
-				'description' => $this->description,
-				'title'       => $this->title
-			);
-			if ( $this->map_advertisements->insert($advertisement) ){
-				/** add( message, type[success|error], echo[default|false] ) */
+		if ( $this->input->post() ){
+			$validationErrors = self::_validateForm();
+			if ($validationErrors != 1){
 				$r[] = array(
-					'message' => 'Successfully added the advertisement to the system, it should show up shortly.',
-					'type' => 'success'
-				);
-				$this->message->add(200, $r);
-				$this->db->cache_delete('admin', 'advertisements');
-				redirect('admin/advertisements/index');
-			}else{
-				/** add( message, type[success|error], echo[default|false] ) */
-				$r[] = array(
-					'message' => 'Unable to add the advertisement to the system, due to a system error. Contact an Administrator',
-					'type' => 'error'
+					'message' => 'Unable to add the advertisement due to the following validation errors: '.$validationErrors,
+					'type' => 'error',
+					'flashdata' => TRUE
 				);
 				$this->message->add(400, $r);
-				redirect( redirect( $_SERVER['HTTP_REFERER'] ) );
+				exit;
+				redirect( '/admin/advertisements/add');
+			}else{
+				$this->timestamp = time();
+				if($this->youtube){
+					#load the video helper spark
+					$this->load->spark('video_helper/1.0.2');
+					#load the video helper to parse vimeo and youtube videos
+					$this->load->helper('video');
+					$this->youtube = youtube_id($this->youtube);
+					$this->picture = '';
+
+				}elseif($_FILES['picture']['name'] != ''){
+					$this->picture = $this->file_upload->uploadAdvertisement($_FILES, $this->timestamp );
+				}else{
+					$this->youtube = '';
+					$this->picture = '';
+				}
+				$advertisement = array(	
+					'youtube_id'  => $this->youtube,
+					'status'      => $this->status,
+					'timestamp'   => $this->timestamp,
+					'type'        => $this->type,
+					'filename'    => $this->picture,
+					'url'         => $this->url,
+					'description' => $this->description,
+					'title'       => $this->title
+				);
+				if ( $this->map_advertisements->insert($advertisement) ){
+					/** add( message, type[success|error], echo[default|false] ) */
+					$r[] = array(
+						'message' => 'Successfully added the advertisement to the system, it should show up shortly.',
+						'type' => 'success',
+						'flashdata' => TRUE,
+					);
+					$this->message->add(200, $r);
+					$this->db->cache_delete('admin', 'advertisements');
+					redirect('admin/advertisements/index', 'refresh');
+				}else{
+					/** add( message, type[success|error], echo[default|false] ) */
+					$r[] = array(
+						'message' => 'Unable to add the advertisement to the system, due to a system error. Contact an Administrator',
+						'type' => 'error',
+						'flashdata' => TRUE,
+					);
+					$this->message->add(400, $r);
+				}
 			}
+		}else{
+			$this->template
+				 ->title('Add Advertisement')
+				 ->set_breadcrumb('Advertisement Management', '/admin/advertisements/index')
+				 ->build('admin/advertisements/add', $this->data);
 		}
 	}
-
 
 	public function edit($id){
 	}

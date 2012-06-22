@@ -20,6 +20,20 @@ class Index extends ADMIN_Controller {
 			),
 		);
 
+		$this->data['assets'] = array(
+			array(
+				'type' => 'css',
+				'group' => TRUE,
+				'group_name' => 'backend_visualize',
+				'assets' => array('backend/jquery.visualize.css'),
+			),
+			array(
+				'type' => 'js',
+				'group' => TRUE,
+				'group_name' => 'backend_visualize',
+				'assets' => array('backend/jquery.visualize.js'),
+			)
+		);
 		$this->template
 			->title('Admin Dashboard')
 			->set_breadcrumb('Dashboard', 'admin/index')

@@ -32,7 +32,7 @@
        For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
   <?php Assets::js_group('header', array('shared/modernizr.min.js') ); ?>
 <!-- CSS: implied media=all -->
-  <?php Assets::css( array('backend/bootstrap.min.css', 'backend/bootstrap-responsive.min.css', 'backend/font-awesome.css', 'backend/app.css') ); ?>
+  <?php Assets::css( array('backend/bootstrap.min.css', 'backend/font-awesome.css', 'backend/app.css') ); ?>
 </head>
 
 <body>
