@@ -138,6 +138,18 @@ body{
     display:none;
   }
 
+
+/**
+ * Loading Box
+ */
+.loading{
+  float: left;
+  height: 108px;
+  width: 1137px;
+  position: absolute;
+  background: url('/images/transparent_loading_background.png') left top repeat;
+}
+
 /**
  * Item Modification Styling 
  *
