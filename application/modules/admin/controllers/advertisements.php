@@ -76,14 +76,14 @@ class Advertisements extends ADMIN_Controller{
 				$this->picture = '';
 			}
 			$advertisement = array(	
-				'youtube_id' => $this->youtube,
-				'status' => $this->status,
-				'timestamp' => $this->timestamp,
-				'type' => $this->type,
-				'filename' => $this->picture,
-				'url' => $this->url,
+				'youtube_id'  => $this->youtube,
+				'status'      => $this->status,
+				'timestamp'   => $this->timestamp,
+				'type'        => $this->type,
+				'filename'    => $this->picture,
+				'url'         => $this->url,
 				'description' => $this->description,
-				'title' => $this->title
+				'title'       => $this->title
 			);
 			if ( $this->map_advertisements->insert($advertisement) ){
 				/** add( message, type[success|error], echo[default|false] ) */

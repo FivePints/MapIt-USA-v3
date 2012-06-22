@@ -52,7 +52,20 @@ class FRONT_Controller extends CI_Controller {
 		if (!$this->ion_auth->logged_in()){
 			$this->data['user'] = FALSE;
 		}else{
-			$this->data['user'] = $this->ion_auth->user();
+	        $this->data['user'] = array(
+	            'session_id'     => $this->session->userdata('session_id'),
+	            'ip_address'     => $this->session->userdata('ip_address'),
+	            'user_agent'     => $this->session->userdata('user_agent'),
+	            'last_activity'  => $this->session->userdata('last_activity'),
+	            'user_data'      => $this->session->userdata('user_data'),
+	            'identity'       => $this->session->userdata('identity'),
+	            'username'       => $this->session->userdata('username'),
+	            'first_name'     => $this->session->userdata('first_name'),
+	            'last_name'      => $this->session->userdata('last_name'),
+	            'email'          => $this->session->userdata('email'),
+	            'user_id'        => $this->session->userdata('user_id'),
+	            'old_last_login' => $this->session->userdata('old_last_login'),
+	        );
 		}
 		/**
 		 * setup some default items to be used across all of the 

@@ -50,7 +50,8 @@ class Auth extends AUTH_Controller{
 				$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
 				$this->template
-					->title('Login Form')
+					->title('User Login')
+					->append_metadata("$('#login-form').validate({ errorElement: \"span\", errorClass: \"help-block\", highlight: function(label) { $(label).closest('.control-group').addClass('error'); } });")
 					->build('auth/templates/login_form', $this->data);
 			}
 		}

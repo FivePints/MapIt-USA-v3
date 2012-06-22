@@ -5,7 +5,13 @@ class Index extends ADMIN_Controller {
 	function __construct(){
 		parent::__construct();
 	}
-
+	/**
+	 * The default controller
+	 * This is the dashboard, which 
+	 * shows some nifty charting and
+	 * basic statistical information 
+	 * for the administrators.
+	 */
 	public function index(){
 		$this->data['chart'] = array(
 			'byCategory' => array(
@@ -13,6 +19,7 @@ class Index extends ADMIN_Controller {
 				'data'   => $this->mapPoints->getCountByCategory( array('limit' => 5) ),
 			),
 		);
+
 		$this->template
 			->title('Admin Dashboard')
 			->set_breadcrumb('Dashboard', 'admin/index')

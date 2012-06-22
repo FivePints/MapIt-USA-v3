@@ -3,14 +3,13 @@ $identity = array(
 	'name'	=> 'identity',
 	'id'	=> 'identity',
 	'value' => set_value('identity'),
-	'class' => 'span3 login-input',
-	'placeholder' => "Enter Your Username or Email Address"
+	'class' => 'required login-input',
+	'placeholder' => 'Username or Email Address',
 );
 $password = array(
 	'name'	=> 'password',
 	'id'	=> 'password',
-	'class' => 'span3 login-input',
-	'placeholder' => 'Enter Your Password'
+	'class' => 'required login-input',
 );
 $remember = array(
 	'name'	=> 'remember',
@@ -31,11 +30,13 @@ $remember = array(
 	<?php echo form_open($this->uri->uri_string(), $formAttributes); ?>
 	<fieldset>
 		<div class="control-group">
+			<label for="identity"><strong>Username:</strong></label>
 			<div class="controls">
 				<?php echo form_input($identity); ?>
 			</div>
 		</div>
 		<div class="control-group">
+			<label for="password"><strong>Password:</strong></label>
 	  		<div class="controls">
 	  			<?php echo form_password($password); ?>
 	  		</div>

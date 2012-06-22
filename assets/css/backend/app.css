@@ -1,9 +1,10 @@
 body{
   margin-top:50px;
+  background: url('/images/paper_02.png') left top repeat;
 }
 
 .login-body{
-  background: url('/images/paper_01.png') left top repeat;
+  margin-top:0;
 }
 
 .environment {
@@ -28,13 +29,21 @@ body{
   .login-box{
     margin-bottom:10px;
   }
+  .login-input{
+    width:97%;
+  }
   #powered-by-mapit a{
     text-decoration:none;
   }
-  .login-input{
-    width:311px !important;
+  #login-form{
+    margin-bottom:0;
   }
-
+  label.error {
+    font-weight: bold;
+    color: red;
+    padding: 2px 8px;
+    margin-top: 2px;
+  }
 /*  =Admin Area
   ------------------------------------------------------ */
   #graph-hero-container{

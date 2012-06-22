@@ -3,7 +3,7 @@
 		<div id="toolbar">
 			<?php if ($user != FALSE): ?>
 			<div class="grid_9 alpha omega">
-				<p class="toolbar-align-left"><?php if ($user['last_login'] == ''): ?>Welcome <?php else: ?> Welcome Back<?php endif; ?><strong> <?php echo $user['firstname']; ?></strong></p>
+				<p class="toolbar-align-left"><?php if ($user['old_last_login'] == ''): ?>Welcome <?php else: ?> Welcome Back<?php endif; ?><strong> <?php echo $user['first_name']; ?></strong></p>
 				<ul>
 					<li><a href="<?php echo base_url(); ?>profile/index.html" target="_blank">Your Profile</a></li>
 					<li><a href="<?php echo base_url(); ?>user/logout.html" target="_blank">Logout</a></li>

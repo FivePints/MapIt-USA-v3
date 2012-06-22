@@ -75,3 +75,19 @@
 [20-Jun-2012 13:28:24] PHP   7. Template->_load_view() /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/application/sparks/template/1.9.0/libraries/Template.php:688
 [20-Jun-2012 13:28:24] PHP   8. MX_Loader->view() /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/application/sparks/template/1.9.0/libraries/Template.php:727
 [20-Jun-2012 13:28:24] PHP   9. MX_Loader->_ci_load() /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/application/third_party/MX/Loader.php:266
+[21-Jun-2012 06:59:31] PHP Fatal error:  Cannot use object of type Ion_auth_model as array in /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/application/modules/index/views/index.php on line 6
+[21-Jun-2012 06:59:31] PHP Stack trace:
+[21-Jun-2012 06:59:31] PHP   1. {main}() /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/index.php:0
+[21-Jun-2012 06:59:31] PHP   2. require_once() /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/index.php:283
+[21-Jun-2012 06:59:31] PHP   3. call_user_func_array() /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/system/core/CodeIgniter.php:399
+[21-Jun-2012 06:59:31] PHP   4. Index->index() /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/system/core/CodeIgniter.php:0
+[21-Jun-2012 06:59:31] PHP   5. MX_Loader->view() /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/application/modules/index/controllers/index.php:59
+[21-Jun-2012 06:59:31] PHP   6. MX_Loader->_ci_load() /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/application/third_party/MX/Loader.php:266
+[21-Jun-2012 06:59:31] PHP   7. include() /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/application/third_party/MX/Loader.php:318
+[21-Jun-2012 06:59:31] PHP   8. MX_Loader->view() /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/application/modules/index/views/template.php:4
+[21-Jun-2012 06:59:31] PHP   9. MX_Loader->_ci_load() /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/application/third_party/MX/Loader.php:266
+[21-Jun-2012 06:59:31] PHP  10. include() /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/application/third_party/MX/Loader.php:318
+[21-Jun-2012 10:44:51] PHP Parse error:  syntax error, unexpected T_OBJECT_OPERATOR in /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/application/modules/auth/controllers/auth.php on line 55
+[21-Jun-2012 10:44:51] PHP Stack trace:
+[21-Jun-2012 10:44:51] PHP   1. {main}() /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/index.php:0
+[21-Jun-2012 10:44:51] PHP   2. require_once() /Volumes/MacintoshHD/users/mikedevita/Sites/mapitusa.com/develop/core_new/index.php:283

@@ -35,22 +35,25 @@
   <?php Assets::css( array('backend/bootstrap.min.css', 'backend/bootstrap-responsive.min.css', 'backend/app.css') ); ?>
 </head>
 
-<body>
+<body class="login-body">
 <?php if(ENVIRONMENT == 'development'): ?>
 <div class="environment"><?= ENV_NOTICE; ?></div>
 <?php endif; ?>
   <!-- Begin of #container -->
   <div class="container">
   	<!-- Begin of LoginBox-section -->
-    <section class="row">
+    <div class="row">
       <?= $template['body']; ?>
-    </section> <!--! end of #login-box -->
+    </div> <!--! end of #login-box -->
   </div> <!--! end of #container -->
 
 
   <!-- JavaScript at the bottom for fast page loading -->
   <?php Assets::cdn( array('jquery','jqueryui') ); ?>
-  <?php Assets::js_group('footer', array('backend/bootstrap.min.js', 'backend/chosen.jquery.js', 'backend/jquery.dataTables.min.js', 'backend/jquery.validate.min.js', 'backend/jquery.visualize.js', 'backend/map.js', 'backend/plugins.js', 'backend/script.js') ); ?>
+  <?php Assets::js_group('login_footer', array('backend/bootstrap.min.js', 'backend/jquery.validate.js', 'backend/plugins.js', 'backend/script.js') ); ?>
+  <script type="text/javascript">
+    <?= $template['metadata']; ?>
+  </script>
   <!-- end scripts-->
 
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
