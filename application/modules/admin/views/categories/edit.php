@@ -4,29 +4,38 @@ $cat = array(
 	'id' => 'category',
 	'title' => 'This is the Category Name',
 	'value' => $category->category_name,
-	'size' => 30
 );
 ?>
-<div class="block-border">
-	<div class="block-header"><h1>Add Category</h1></div>
-	<form method="POST" action="/admin/categories/processedit/<?= $category->id; ?>.html" id="add-category-form" class="block-content form">
-		<div class="_100">
-			<fieldset>
-				<p>Fill the form field out below with the <strong>Category Name</strong>, the category will be converted to Uppercase and entered into the database</p>
-				<p><?php echo form_label('Category Name', $cat['id']); ?><?php echo form_input($cat); ?></p>
-				<?php echo form_error($cat['id']); ?>
-
-			</fieldset>
+<form method="POST" action="/admin/categories/edit/<?= $category->id; ?>.html" id="add-category-form" class="well form">
+	<fieldset>
+		<div class="span12">
+			<p>Fill the form field out below with the <strong>Category Name</strong>, the category will be converted to Uppercase and entered into the database</p>
 		</div>
-		<div class="clear height-fix"></div>
-		<div class="block-actions">
-			<ul class="actions-left">
-				<li><a class="close-toolbox button red" href="javascript:void(0);">Reset</a></li>
-			</ul>
-			<ul class="actions-right">
-				<li><input id="config-form-submit" type="submit" class="button" value="Edit It!"></li>
-			</ul>
-		</div>
-	</form>
+		<div class="span5">
+			<div class="control-group">
+				<?php echo form_label('Category Name', $cat['id']); ?>
 
-</div>
+				<div class="controls">
+					<?php echo form_input($cat); ?></p>
+				</div>
+			</div>
+		</div>
+		<?php if($mapConfig->events == 1): ?>
+		<div class="span5">
+			<div class="control-group">
+				<label for="categoryType">Category Type</label>
+				<div class="controls">
+					<select name="categoryType" class="chzn-select">
+						<option value="default" selected="selected">Default</option>
+						<option value="event" >Event</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<?php endif; ?>
+	</fieldset>
+	<div class="form-actions form-actions-notopmargin">
+		<input type="submit" class="btn btn-primary" value="Add Category">
+		<input type="reset" class="btn" value="Reset Form">
+	</div>
+</form>

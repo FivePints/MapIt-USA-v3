@@ -19,10 +19,16 @@ class Categories extends ADMIN_Controller{
 	 * @copyright 2012 MapIt USA
 	 */
 	public function index(){
+		$this->data['assets'] = array(
+			array(
+				'type' => 'js',
+				'assets' => array( 'backend/jquery.dataTables.min.js', 'backend/jquery.dataTables.user.js' ),
+			),
+		);
+
 		$this->template
 			->title('View Categories')
-			->set_breadcrumb('View Categoires', '/admin/categories/index')
-			->append_metadata(" var oTable = $('#view-categories-table').dataTable({ 'aaSorting': [[1, 'asc']] });")
+			->set_breadcrumb('View Categories', '/admin/categories/index')
 			->build('admin/categories/index', $this->data);
 	}
 	/**
@@ -38,20 +44,23 @@ class Categories extends ADMIN_Controller{
 	public function edit($id = FALSE){
 		if (!$id){
 			$r[] = array(
-				'message' => 'No Categories Selected',
-				'type' => 'error'
+				'message' => 'No Category Selected',
+				'type' => 'error',
+				'flashdata' => TRUE
 			);
 			$this->message->add(400, $r);
-		}else{
-			$this->data['category'] = $this->mapCategories->getCategory($id);
-			$this->template
-				 ->title('Edit Category')
-				 ->set_breadcrumb('View Categories', '/admin/categories/index')
-				 ->set_breadcrumb('Edit Category', '/admin/categories/edit/'.$id.'.html')
-
-				 ->build('admin/categories/edit', $this->data);
+			redirect("/admin/categories/index");
 		}
+		$this->data['category'] = $this->mapCategories->getCategory($id);
+		print_r($this->data['category']);
+		$this->template
+			 ->title('Edit Category')
+			 ->set_breadcrumb('View Categories', '/admin/categories/index')
+			 ->set_breadcrumb('Edit Category', '/admin/categories/edit/'.$id.'.html')
+
+			 ->build('admin/categories/edit', $this->data);
 	}
+
 	public function processEdit($id){
 		$validationErrors = self::_validateForm();
 		if ($validationErrors != 1){
@@ -67,50 +76,6 @@ class Categories extends ADMIN_Controller{
 			if ( $this->mapCategories->edit( array('id' => $id, 'category_name' => $this->categoryName) ) ){
 				$r[] = array(
 					'message' => 'Successfully Edited The Category',
-					'type' => 'success'
-					'flashdata' => TRUE
-				);
-				$this->message->add(200, $r);
-				redirect( 'admin/categories/index' );
-			}else{
-				$r[] = array(
-					'message' => 'Unable to edit the category due to a system error',
-					'type' => 'error'
-					'flashdata' => TRUE
-				);
-				$this->message->add(400, $r);
-				redirect( $_SERVER['HTTP_REFERER'] );
-			}
-
-		}
-	}
-	public function add(){
-		$this->template
-			 ->title('Add Category')
-			 ->set_breadcrumb('View Categories', '/admin/categories/index')
-			 ->set_breadcrumb('Add Category', '/admin/categories/add')
-
-			 ->build('admin/categories/add', $this->data);
-	}
-	public function ProcessAdd(){
-		$validationErrors = self::_validateForm();
-		if ($validationErrors != 1){
-			$r[] = array(
-				'message' => 'Unable to add the category due to name validation errors',
-				'type' => 'error',
-				'flashdata' => TRUE
-			);
-			$this->message->add(400, $r);
-			redirect( $_SERVER['HTTP_REFERER'] );
-		}else{
-			$this->categoryName = strtoupper($this->categoryName);
-			$catAdd = array(
-				'category_name' => $this->categoryName,
-				'category_type' => $this->categoryType
-			);
-			if ( $this->mapCategories->insert($catAdd) ){
-				$r[] = array(
-					'message' => 'Successfully Added The Category',
 					'type' => 'success',
 					'flashdata' => TRUE
 				);
@@ -118,7 +83,7 @@ class Categories extends ADMIN_Controller{
 				redirect( 'admin/categories/index' );
 			}else{
 				$r[] = array(
-					'message' => 'Unable to add the category due to a system error',
+					'message' => 'Unable to edit the category due to a system error',
 					'type' => 'error',
 					'flashdata' => TRUE
 				);
@@ -128,8 +93,53 @@ class Categories extends ADMIN_Controller{
 
 		}
 	}
+	public function add(){
+		if( $this->input->post() ){
+			$validationErrors = self::_validateForm();
+			if ($validationErrors != 1){
+				$r[] = array(
+					'message' => 'Unable to add the category due to name validation errors',
+					'type' => 'error',
+					'flashdata' => TRUE
+				);
+				$this->message->add(400, $r);
+				redirect( $_SERVER['HTTP_REFERER'] );
+			}else{
+				$this->categoryName = strtoupper($this->categoryName);
+				$catAdd = array(
+					'category_name' => $this->categoryName,
+					'category_type' => $this->categoryType
+				);
+				if ( $this->mapCategories->insert($catAdd) ){
+					$r[] = array(
+						'message' => 'Successfully Added The Category',
+						'type' => 'success',
+						'flashdata' => TRUE
+					);
+					$this->message->add(200, $r);
+					redirect( 'admin/categories/index' );
+				}else{
+					$r[] = array(
+						'message' => 'Unable to add the category due to a system error',
+						'type' => 'error',
+						'flashdata' => TRUE
+					);
+					$this->message->add(400, $r);
+					redirect( $_SERVER['HTTP_REFERER'] );
+				}
+
+			}
+		}else{
+			$this->template
+				 ->title('Add Category')
+				 ->set_breadcrumb('View Categories', '/admin/categories/index')
+				 ->set_breadcrumb('Add Category', '/admin/categories/add')
+				 ->build('admin/categories/add', $this->data);
+		}
+	}
 
 	public function delete($id = FALSE){
+		$this->output->enable_profiler(false);
 		if ( $this->mapCategories->delete($id) ){
 			$r[] = array(
 				'message' => 'Successfully Deleted The Category',

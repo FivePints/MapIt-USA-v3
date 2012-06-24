@@ -3,7 +3,7 @@
 
   <?php
   foreach ( $assets as $a ):
-    if( $a['group'] === TRUE ):
+    if( isset($a['group']) && $a['group'] === TRUE ):
         $type = $a['type'].'_group';
         Assets::$type($a['group_name'], $a['assets'] );
       else:

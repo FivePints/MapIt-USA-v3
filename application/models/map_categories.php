@@ -6,11 +6,16 @@ class Map_categories extends CI_Model {
         // Call the Model constructor
         parent::__construct();
     }
-    function getCategory($id){
+
+    /**
+     * Get a specific category based on its ID number
+     * @param  integer $id id number of the category
+     * @return object      object of results, false if none
+     */
+    function getCategory( $id = FALSE ){
         if ($id == FALSE){
             return false;
         }else{
-
             $this->db->where('id', $id);
             $q = $this->db->get('categories');
 
@@ -26,10 +31,8 @@ class Map_categories extends CI_Model {
      * get all of the categories from the table
      * `map_categories`. Optionally can pass an array
      * of parameters. Reference @param below for a full list.
-     * 
-     * @param  array onlyActiveCategories only show categories which have points 
-     *                                    assigned to them. This is generated from
-     *                                    a cron task.
+     *
+     * @param  array onlyActiveCategories
      * @return array array of categories
      */
     function getAllCategories($params = array() ){
