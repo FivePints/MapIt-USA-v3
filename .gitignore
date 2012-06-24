@@ -14,7 +14,7 @@ x
 application/cache/*
 !application/cache/index.html
 !application/cache/.htaccess
-/index.php
+*/index.php
 /assets/cache/*
 /assets/cache/info.cache
 !/assets/cache/index.html
