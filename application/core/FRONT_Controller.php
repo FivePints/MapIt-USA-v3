@@ -1,10 +1,11 @@
 <?php 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class FRONT_Controller extends CI_Controller {
+class FRONT_Controller extends MY_Controller {
 
 	public function __construct(){
 		parent::__construct();
+
 		/**
 		 * Load all of hte models and libraries that we will need across all areas of this function
 		 */

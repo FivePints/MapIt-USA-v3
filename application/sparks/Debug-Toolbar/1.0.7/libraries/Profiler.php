@@ -57,7 +57,6 @@ class CI_Profiler extends CI_Loader {
 		$this->CI =& get_instance();
 		$this->CI->load->language('profiler');
 		$this->CI->load->library('session');
-
 		// default all sections to display
 		foreach ($this->_available_sections as $section)
 		{

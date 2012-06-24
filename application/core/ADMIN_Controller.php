@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class ADMIN_Controller extends CI_Controller {
+class ADMIN_Controller extends MY_Controller {
     public function __construct(){
         parent::__construct();
         $this->output->enable_profiler(true);

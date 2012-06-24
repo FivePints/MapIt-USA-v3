@@ -14,7 +14,6 @@
     </div>
 </div>
 <!-- END Membership Info Popup -->
-</body>
 <?php Assets::cdn( array('jquery', 'jqueryui', 'jquery-cycle') ); ?>
 <?php Assets::js_group('footer', array('shared/jquery.form.js', 'shared/infobubble.js', 'frontend/script.js', 'frontend/mapit.js', 'shared/jquery.notifications.js', 'shared/shared-script.js') ); ?>
 <?php if($mapConfig->events == 1): Assets::js_group('events', array('frontend/events.js') ); endif; ?>

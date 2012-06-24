@@ -75,6 +75,7 @@ class Index extends FRONT_Controller {
    * @return json_encoded array of points
    */
   public function process($searchType){
+    $this->output->enable_profiler(false);
     /**
      * handle the type of search
      *
@@ -493,6 +494,7 @@ class Index extends FRONT_Controller {
    *
    */
   private function _addPoint(){
+    $this->output->enable_profiler(false);
     /** cycle through each mapPoint row that was returned and set the pointIds up to be something we can use. */
     foreach ($this->data['mapPoints'] as $p){
       $pointIds[$p->p_id] =  $p->p_id;

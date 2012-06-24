@@ -42,7 +42,14 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', 'development');
+if(strpos($_SERVER['SERVER_NAME'], 'devnew') !== FALSE) {
+  define('ENVIRONMENT', 'development');
+}elseif(strpos($_SERVER['SERVER_NAME'], 'stage.') === 0) {
+  define('ENVIRONMENT', 'stage');
+}else{
+  define('ENVIRONMENT', 'production');
+}
+
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
