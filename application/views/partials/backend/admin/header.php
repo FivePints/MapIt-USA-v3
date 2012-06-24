@@ -57,7 +57,7 @@
             <li><a href="<?= base_url('/auth/logout'); ?>">Sign Out</a></li>
           </ul>
         </div>
-        <?php if ($page['announcements'] ): ?>
+        <?php if ($map['announcements'] ): ?>
         <div class="btn-group pull-right nav-notice">
           <span class="badge badge-info nav-notice-button"><?php echo count($page['announcements']); ?></span>
           <div class="notice-container">
