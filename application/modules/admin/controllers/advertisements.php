@@ -1,24 +1,27 @@
 <?php
+
 /**
-* Levels Class For Administration Backend
-*/
+ * Advertisements Class
+ *
+ * All interaction with the admin side
+ * of the advertisements. Perform CRUD,
+ * also activate/deactivate advertisements.
+ *
+ * @author Mike DeVita <mdevita@fivepints.com>
+ * @category map.admin.advertisements
+ */
 class Advertisements extends ADMIN_Controller{
-	
 	function __construct(){
 		parent::__construct();
 		$this->load->model('map_advertisements');
 	} #end constructor function
 
 	/**
-	 * displays the advertisements currently in
-	 * the database. From this page you can 
+	 * displays the advertisements currently in the database
+	 *
+	 * From this page you can
 	 * change the status of advertisements or
 	 * edit them.
-	 * 
-	 * @author Mike DeVita <m.devita@fivepints.com>
-	 * @copyright 2012 Copyright MapIt USA
-	 * @package advertisements
-	 * @version 1.0
 	 */
 	public function index(){
 		$this->data['advertisements'] = $this->map_advertisements->getAdvertisementsWithClicks();
@@ -36,16 +39,13 @@ class Advertisements extends ADMIN_Controller{
 			 //->append_metadata(" var oTable = $('#view-advertisements-table').dataTable({ 'aaSorting': [[3, 'asc']] });")
 			 ->build('admin/advertisements/index', $this->data);
 	}
+
 	/**
 	 * displays the add advertisement form
+	 *
 	 * this form is used to add an advertisement
 	 * to the front-end of mapit.
-	 * 
-	 * @author Mike DeVita <m.devita@fivepints.com>
-	 * @copyright 2012 Copyright MapIt USA
-	 * @package advertisements
-	 * @version  1.0
-	 */	
+	 */
 	public function add(){
 		if ( $this->input->post() ){
 			$validationErrors = self::_validateForm();
@@ -74,7 +74,7 @@ class Advertisements extends ADMIN_Controller{
 					$this->youtube = '';
 					$this->picture = '';
 				}
-				$advertisement = array(	
+				$advertisement = array(
 					'youtube_id'  => $this->youtube,
 					'status'      => $this->status,
 					'timestamp'   => $this->timestamp,
@@ -112,21 +112,15 @@ class Advertisements extends ADMIN_Controller{
 		}
 	}
 
-	public function edit($id){
-	}
 	/**
 	 * the public facing status change method.
+	 *
 	 * This method changes the status of the
 	 * advertisement based on the status post
 	 * var that was passed to it from the form.
-	 * 
+	 *
 	 * @param  integer $id id number of the advertisement
 	 * @return boolean     returns false if the status change failed
-	 * 
-	 * @author Mike DeVita <m.devita@fivepints.com>
-	 * @copyright 2012 Copyright MapIt USA
-	 * @package advertisements
-	 * @version  1.0
 	 */
 	public function status($id){
 		$this->output->enable_profiler(false);
@@ -141,6 +135,12 @@ class Advertisements extends ADMIN_Controller{
  		}
 
 	}
+	/**
+	 * the method for deleting an advertisement from the database.
+	 *
+	 * @param  int $id id number of the advertisement to remove
+	 * @return array     returns a json encoded object of success/fail
+	 */
 	public function delete($id){
 		$this->output->enable_profiler(false);
 		if ( $this->map_advertisements->delete($id) ){
@@ -161,6 +161,13 @@ class Advertisements extends ADMIN_Controller{
 			exit;
 		}
 	}
+
+	/**
+	 * private function to activate an advertisement and make it visible.
+	 *
+	 * @param  int $id id number of the advertisement
+	 * @return array     returns a json encoded object of success/fail
+	 */
 	private function _activate($id){
 		if ($this->map_advertisements->activate($id)){
 			/** add( message, type[success|error], echo[default|false] ) */
@@ -179,6 +186,13 @@ class Advertisements extends ADMIN_Controller{
 			$this->message->add(400, $r);
 		}
 	}
+
+	/**
+	 * private function to deactivate an advertisement and make it not visible.
+	 *
+	 * @param  int $id id number of the advertisement
+	 * @return array     returns a json encoded object of success/fail
+	 */
 	private function _deactivate($id){
 		if ($this->map_advertisements->deactivate($id)){
 			/** add( message, type[success|error], echo[default|false] ) */
@@ -197,6 +211,13 @@ class Advertisements extends ADMIN_Controller{
 			$this->message->add(400, $r);
 		}
 	}
+
+	/**
+	 * private function to validate a form
+	 *
+	 * submission to either add/edit an advertisement
+	 * @return boolean returns TRUE if pass, validation_errors() if false
+	 */
 	private function _validateForm(){
 
 		$this->form_validation->set_rules('youtube', 'YouTube Video URL', 'xss_clean');
