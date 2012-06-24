@@ -1,9 +1,34 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * This is the Core Controller that sets up
+ * all of the default configs and code that 
+ * are used between both frontend/backend
+ * areas of the app.
+ */
 class MY_Controller extends CI_Controller {
 
-	public static $data = array();
+	/**
+	 * Primary Object Used Throughout
+	 * the application to store data
+	 * and pass it between controller/view
+	 * @var array
+	 */
+	public $data = array(
+		'event_categories'  => array(),
+		'deal_categories'   => array(),
+		'categories'        => array(),
+		'user'              => array(),
+		'assets'            => array(),
+		'map' => array(
+			'config'        => array(),
+			'categories'    => array(),
+			'users'         => array(),
+			'levels'        => array(),
+			'announcements' => array(),
+		),
+	);
 
     public function __construct(){
 		parent::__construct();

@@ -55,8 +55,6 @@ class PROFILE_Controller extends MY_Controller {
 			'levels' 			=> $this->mapLevels->getAllLevels(),
 			'announcements'   	=> $this->mapConfig->getAnnouncements(),
 		);
-        /** Empty holder for assets, used in views to dynamically load js/css files */
-        $this->data['assets'] = array();
 
 		$this->template
 			->set_partial('backend-sidebar', 'partials/backend/user/sidebar')

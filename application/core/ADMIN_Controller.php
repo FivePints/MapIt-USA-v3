@@ -53,7 +53,6 @@ class ADMIN_Controller extends MY_Controller {
          * Load Configs
          */
         $this->data['map'] = array(
-            'config'         => $this->mapConfig->getConfig(),
             'categories'     => $this->mapCategories->getAllCategories(),
             'users'          => $this->ion_auth->users(),
             'levels'         => $this->mapLevels->getAllLevels(),
@@ -61,7 +60,6 @@ class ADMIN_Controller extends MY_Controller {
         );
 
         /** Empty holder for assets, used in views to dynamically load js/css files */
-        $this->data['assets'] = array();
 
         $this->template
             ->set_partial('backend-sidebar', 'partials/backend/admin/sidebar')
