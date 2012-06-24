@@ -1,22 +1,25 @@
 <?php
+
 /**
-* Levels Class For Administration Backend
-*/
+ * Categories Class
+ *
+ * All interaction with the admin side
+ * of the categories. Perform CRUD on
+ * the categories
+ *
+ * @author Mike DeVita <mdevita@fivepints.com>
+ * @category map.admin.categories
+ */
 class Categories extends ADMIN_Controller{
-	
 	function __construct(){
 		parent::__construct();
-		
 	} #end constructor function
 
 	/**
-	 * lists all of the categories in a 
-	 * data table view. Allows for access
-	 * to a category for edits, or direct 
+	 * lists all of the categories in a data table view.
+	 *
+	 * Allows for access to a category for edits, or direct 
 	 * deletion of a category.
-	 * 
-	 * @author Mike DeVita <mdevita@mapitusa.com>
-	 * @copyright 2012 MapIt USA
 	 */
 	public function index(){
 		$this->data['assets'] = array(
@@ -32,14 +35,12 @@ class Categories extends ADMIN_Controller{
 			->build('admin/categories/index', $this->data);
 	}
 	/**
-	 * Displays a form for editing a 
-	 * categories name, this pulls data
-	 * from the database based on the ID
+	 * Displays a form for editing a categories name
+	 *
+	 * this pulls data from the database based on the ID
 	 * passed to it.
-	 * 
+	 *
 	 * @param  integer $id id number of a category
-	 * @author Mike DeVita <mdevita@mapitusa.com>
-	 * @copyright 2012 MapIt USA
 	 */
 	public function edit($id = FALSE){
 		if (!$id){
